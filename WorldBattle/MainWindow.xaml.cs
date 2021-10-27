@@ -89,7 +89,9 @@ namespace WorldBattle
                 {
                     WriteMessage("Connected");
 
-                   
+                    this.Hide();
+                    GameUI game = new GameUI(stream, "First");
+                    game.ShowDialog();
                     
                     SendDisconnectMessage();
                 }
@@ -132,7 +134,9 @@ namespace WorldBattle
                 if (data == "Connected")
                 {
                     infoLabel.Content = "Connected!";
-                    
+                    this.Hide();
+                    GameUI game = new GameUI(stream, "Second");
+                    game.ShowDialog();
                 }
                 else
                 {

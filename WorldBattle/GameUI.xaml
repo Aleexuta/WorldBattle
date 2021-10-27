@@ -1,0 +1,21 @@
+﻿<Window x:Class="WorldBattle.GameUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorldBattle"
+        mc:Ignorable="d"
+        Title="GameUI" Height="800" Width="1200">
+    <Grid>
+        <DataGrid Name="MyTable"  HorizontalAlignment="Left" Height="320" Width="320" Margin="166,171,0,280">
+
+        </DataGrid>
+        <DataGrid Height="320" Margin="770,161,104,290"  Width="320">
+            <Button x:Name="Button0" Content="Button" Margin="220,220,220,220" Width="40" Height="40"/>
+            <Button x:Name="Button1" Content="Button" Margin="220,100,220,100" Width="40" Height="40"/>
+        </DataGrid>
+
+
+
+    </Grid>
+</Window>
