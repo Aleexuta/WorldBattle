@@ -1,0 +1,15 @@
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.AssemblyReference.cache
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\App.g.cs
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle_MarkupCompile.cache
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\bin\Debug\WorldBattle.exe.config
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\bin\Debug\WorldBattle.exe
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\bin\Debug\WorldBattle.pdb
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\MainWindow.g.cs
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle_MarkupCompile.lref
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\MainWindow.baml
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.g.resources
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.Properties.Resources.resources
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.GenerateResource.cache
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.CoreCompileInputs.cache
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.exe
+C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.pdb
