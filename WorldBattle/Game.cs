@@ -19,9 +19,11 @@ namespace WorldBattle
         private TypesBoard[] YourBoardBullets;
         private TypesBoard[] MyBoardBullets;
         private String player;
-
+        private String gameInfo;
+        private String recentMove;
         private bool gameOver;
         private bool turn;
+        private bool prepare;
 
 
         public Game(String player)
@@ -35,6 +37,7 @@ namespace WorldBattle
             }
             this.player = player;
             this.gameOver = false;
+            this.prepare = true;
             if (player == "First")
             {
                 this.turn = true;
@@ -45,9 +48,15 @@ namespace WorldBattle
             }
             PrepareMyTable();
         }
-
+        public String GetGameInfo() { return this.gameInfo; }
+        public String GetRecentMove(){ return this.recentMove; }
         public bool isOver() { return gameOver; }
         public bool isTurn() { return turn; }
+        public bool isInPrepareMode() { return prepare; }
+        public void EndGame()
+        {
+            this.gameOver = true;
+        }
         private void PrepareMyTable()
         {
             //pune jucatorul sa aleaga unde pune piesele

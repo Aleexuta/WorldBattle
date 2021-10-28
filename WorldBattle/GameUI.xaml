@@ -7,13 +7,19 @@
         mc:Ignorable="d"
         Title="GameUI" Height="800" Width="1200">
     <Grid>
-        <DataGrid Name="MyTable"  HorizontalAlignment="Left" Height="320" Width="320" Margin="166,171,0,280">
+        <Grid Name="mytable" Margin="120,147,594,144" Background="Pink" Height="480" Width="480"/>
+        <Grid Name="opponenttable" Height="480" Width="480" Margin="654,147,60,144" Background="Aqua">
 
-        </DataGrid>
-        <DataGrid Height="320" Margin="770,161,104,290"  Width="320">
-            <Button x:Name="Button0" Content="Button" Margin="220,220,220,220" Width="40" Height="40"/>
-            <Button x:Name="Button1" Content="Button" Margin="220,100,220,100" Width="40" Height="40"/>
-        </DataGrid>
+            <Button x:Name="Button0" Margin="0,0,280,280"  Width="60" Height="60" Click="Button0_Click" Grid.RowSpan="4" />
+            <Button x:Name="Button1" Margin="40,0,240,280"  Width="40" Height="40" Grid.RowSpan="4" Click="Button1_Click" />
+            <Button x:Name="Button2" Margin="80,0,200,280"  Width="40" Height="40" Grid.RowSpan="4" Click="Button2_Click" />
+            <Button x:Name="Button3" Margin="120,0,160,280"  Width="40" Height="40" Grid.RowSpan="4" Click="Button3_Click" />
+            <Button x:Name="Button4" Margin="160,0,120,280"  Width="40" Height="40" Grid.RowSpan="4" Click="Button4_Click" />
+            <Button x:Name="Button5" Margin="200,0,80,280"  Width="40" Height="40" Grid.RowSpan="4" Click="Button5_Click" />
+            <Button x:Name="Button6" Margin="240,0,40,280"  Width="40" Height="40" Grid.RowSpan="4" Click="Button6_Click" />
+            <Button x:Name="Button7" Margin="280,0,0,280"  Width="40" Height="40" Grid.RowSpan="4" Click="Button7_Click" />
+        </Grid>
+        <TextBlock x:Name="subtitle" HorizontalAlignment="Left" Margin="431,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="208" FontSize="25"/>
 
 
 
