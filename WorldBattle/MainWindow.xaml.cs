@@ -167,5 +167,11 @@ namespace WorldBattle
                 infoLabel.Content = "Could not connect to host";
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GameUI game = new GameUI(stream, "Second");
+            game.ShowDialog();
+        }
     }
 }

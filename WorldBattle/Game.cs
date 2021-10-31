@@ -8,9 +8,11 @@ namespace WorldBattle
 {
     enum TypesBoard
     {
-        Untouched, //nu e nimic-> si nici nu a fost incercata 
-        Empty, //a fost testat si e gol
-        Checked//a fost testat si e plin
+
+        TestedEmpty,
+        TestedFull,
+        UntestedEmpty,
+        UntestedFull
     };
 
     class Game
@@ -24,6 +26,7 @@ namespace WorldBattle
         private bool gameOver;
         private bool turn;
         private bool prepare;
+        private bool opponentready;
 
 
         public Game(String player)
@@ -32,12 +35,15 @@ namespace WorldBattle
             this.YourBoardBullets = new TypesBoard[DIM * DIM];
             for (int i = 0; i < DIM * DIM; i++)
             {
-                this.MyBoardBullets[i] = TypesBoard.Untouched;
-                this.MyBoardBullets[i] = TypesBoard.Untouched;
+                this.MyBoardBullets[i] = TypesBoard.UntestedEmpty;
+                this.YourBoardBullets[i] = TypesBoard.UntestedEmpty;
             }
             this.player = player;
             this.gameOver = false;
             this.prepare = true;
+            this.opponentready = false;
+            this.gameInfo = "";
+            this.recentMove = "";
             if (player == "First")
             {
                 this.turn = true;
@@ -48,11 +54,26 @@ namespace WorldBattle
             }
             PrepareMyTable();
         }
+        public TypesBoard getTypeFromTable(int nrbut) 
+        {
+            return MyBoardBullets[nrbut];
+        }
+        public void setTypeMyTable(int nrbut,TypesBoard type)
+        {
+            MyBoardBullets[nrbut] = type;
+        }
+        public void setTypeYourTable(int nrbut, TypesBoard type)
+        {
+            YourBoardBullets[nrbut] = type;
+        }
         public String GetGameInfo() { return this.gameInfo; }
         public String GetRecentMove(){ return this.recentMove; }
         public bool isOver() { return gameOver; }
         public bool isTurn() { return turn; }
         public bool isInPrepareMode() { return prepare; }
+        public bool isOpponentReady() { return opponentready; }
+        public void setOpponentReady(bool x){ this.opponentready = x;}
+        
         public void EndGame()
         {
             this.gameOver = true;
@@ -60,6 +81,7 @@ namespace WorldBattle
         private void PrepareMyTable()
         {
             //pune jucatorul sa aleaga unde pune piesele
+            //buton ready
         }
     }
 }
