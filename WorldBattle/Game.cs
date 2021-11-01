@@ -58,6 +58,10 @@ namespace WorldBattle
         {
             return MyBoardBullets[nrbut];
         }
+        public TypesBoard getTypeFromYourTable(int nrbut)
+        {
+            return YourBoardBullets[nrbut];
+        }
         public void setTypeMyTable(int nrbut,TypesBoard type)
         {
             MyBoardBullets[nrbut] = type;
@@ -73,6 +77,7 @@ namespace WorldBattle
         public bool isInPrepareMode() { return prepare; }
         public bool isOpponentReady() { return opponentready; }
         public void setOpponentReady(bool x){ this.opponentready = x;}
+        
         
         public void EndGame()
         {

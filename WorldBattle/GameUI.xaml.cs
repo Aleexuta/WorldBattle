@@ -49,11 +49,11 @@ namespace WorldBattle
             //{
             //    this.subtitle.Text = "You are the guest. \nIt's your turn first";
             //}
-            //UpdateBoard();
-            //if (!game.isTurn())
-            //{
-            //    WaitForResponse();
-            //}
+          //  UpdateBoard();
+            if (!game.isTurn())
+            {
+                WaitForResponse();
+            }
 
         }
         private String ReadMessage()
@@ -72,7 +72,7 @@ namespace WorldBattle
             {
                 if (game.isTurn() == true)
                 {
-                    //e randul meu
+                    WriteMessage("Select," + Convert.ToString(button));//trimitem pozitia pe care dorim sa o incercam 
                 }
             }
         }
@@ -83,6 +83,10 @@ namespace WorldBattle
                 if(game.isInPrepareMode()==true)
                 {
                     //prepar tabla mea
+                    //TODO
+                    //rotate poza
+                    //click pe butonul unde vrem sa punem capul pozei
+                    //punem continuarea "barcii" in jurul pct de cap
                 }
             }
         }
@@ -103,15 +107,41 @@ namespace WorldBattle
                 stream.Close();
             }
         }
-        private void UpdateBoard()
+        private void UpdateYourBoard(int position)
         { 
             //updatam interfata in functie de cele doua table de joc
             //TODO?->INTREABA
             //updatetable doar pt pozitia care sa schimbat, nu trebe sa modifici toata tabla
             //pozitia unde am dat click si se aseaza un jeton ramane asa pana la finalul meciului   
-
+            if(game.getTypeFromYourTable(position)==TypesBoard.TestedEmpty)
+            {
+                //se pune jeton de nu e nimic
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri("Photos/GrayX.jpeg"));
+                opponetsButtons[position].Background = brush;
+            }
+            else
+            {
+                //se pune jeton ca e ceva
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri("Photos/RedX.jpeg"));
+                opponetsButtons[position].Background = brush;
+            }
         }
-
+        private void UpdateMyBoard(int position)
+        {
+            if(game.getTypeFromTable(position)==TypesBoard.TestedEmpty)
+            {
+                //seteaza ca a fost incercata
+                mytableButtons[position].Background = Brushes.Green;
+ 
+            }
+            else
+            {
+                //seteaza ca a fost incercata si atinsa
+                mytableButtons[position].Background = Brushes.Red;
+            }
+        }
 
         public void UpdateGame(String data)
         {
@@ -159,7 +189,7 @@ namespace WorldBattle
                     newmessage += "," + dataString[1] + ",Full";
                     game.setTypeMyTable(nrbut, TypesBoard.TestedFull);
                 }
-               
+                UpdateMyBoard(nrbut);
                 WriteMessage(newmessage);
             }
             else if(dataString[0]=="Verified")//primesc felul de buton ce e
@@ -175,7 +205,8 @@ namespace WorldBattle
                 }
                 //TODO
                 //seteaza butonul nrbut al adversarului pe disable
-                
+                UpdateYourBoard(nrbut);
+                opponetsButtons[nrbut].IsEnabled = false;
             }
         }
 
