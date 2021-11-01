@@ -21,7 +21,10 @@
                 <ColumnDefinition Width="59*"/>
                 <ColumnDefinition Width="61*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="MButton0" Margin="0,0,176,61"  Width="60" Height="60" Opacity="0.65" Background="#FF8D27C7"   />
+
+
+           
+                <Button x:Name="MButton0" Margin="0,0,176,61"  Width="60" Height="60" Opacity="1" Background="#FF8D27C7" />
             <Button x:Name="MButton1" Margin="60,0,116,61"  Width="60" Height="60" Opacity="0.65"/>
             <Button x:Name="MButton2" Margin="120,0,56,61"  Width="60" Height="60" Opacity="0.65" />
             <Button x:Name="MButton3" Margin="180,0,240,61"  Width="60" Height="60" Grid.ColumnSpan="2" Opacity="0.65"  />

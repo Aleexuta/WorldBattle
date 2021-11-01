@@ -42,8 +42,9 @@ namespace WorldBattle
             this.stream = stream;
             this.game = new Game(player);
             yourTurnButton.IsEnabled=false;
-           // TODO
-           // seteaza subtitlul pe prepare si abia dupa ce e gata prepararea se seteaza randul
+            
+            // TODO
+            // seteaza subtitlul pe prepare si abia dupa ce e gata prepararea se seteaza randul
             if (player == "First")
             {
                 this.subtitle.Text = "You are the host.\nYour opponent goes first";
@@ -132,18 +133,30 @@ namespace WorldBattle
                 opponetsButtons[position].Content = brush;
             }
         }
+        private void ColorDisable(object sender, System.EventArgs e,Button but)
+        {
+            but.Background = Brushes.AliceBlue;
+        }
         private void UpdateMyBoard(int position)
         {
             if(game.getTypeFromTable(position)==TypesBoard.TestedEmpty)
             {
                 //seteaza ca a fost incercata
+                //nu merge
                 mytableButtons[position].Background = new SolidColorBrush(Colors.Green);
- 
+                Image brush = new Image();
+                brush.Source = new BitmapImage(new Uri("/Poze/GrayX.jpeg", UriKind.Relative));
+                brush.Opacity = 0.5;
+                mytableButtons[position].Content = brush;
             }
             else
             {
                 //seteaza ca a fost incercata si atinsa
                 mytableButtons[position].Background = Brushes.Red;
+                Image brush = new Image();
+                brush.Source = new BitmapImage(new Uri("/Poze/RedX.jpeg", UriKind.Relative));
+                brush.Opacity = 0.5;
+                mytableButtons[position].Content = brush;
             }
         }
 
