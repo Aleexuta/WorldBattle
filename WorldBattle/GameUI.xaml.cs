@@ -37,6 +37,8 @@ namespace WorldBattle
             //mai intai face butoanele tuturor
             //seteaza butoanele adversarului pe disable
             GenerateOpponentButtonArray();
+            GenerateMyTableButtonArray();
+            disable_enableButtons(opponetsButtons, false);
             this.stream = stream;
             this.game = new Game(player);
             //TODO
@@ -143,6 +145,13 @@ namespace WorldBattle
             }
         }
 
+        private void disable_enableButtons(Button[] buttons, bool state)
+        {
+            for(int i=0; i<buttons.Length; i++)
+            {
+                buttons[i].IsEnabled = state;
+            }
+        }
         public void UpdateGame(String data)
         {
             //primeste mesaj de ready
@@ -161,17 +170,30 @@ namespace WorldBattle
             if(dataString[0]=="Ready")
             {
                 game.setOpponentReady(true);
-                if(game.isInPrepareMode()==false)//daca eu sunt gata de joc si e si adversarul
+                if (game.isInPrepareMode() == false)//daca eu sunt gata de joc si e si adversarul
                 {
-                    if(game.isTurn()==true)//daca e randul meu
+                    if (game.isTurn() == true)//daca e randul meu
                     {
                         //TODO
                         //functie de gata cu prepararea
                         //o sa dea disable la toate butoanele de pe tabla mea si o afiseaza pe a adversarului
+
+
+                        //{i guess it's all done}
+                        disable_enableButtons(opponetsButtons, true);
+
+                    }
+                    else
+                    {
+                        disable_enableButtons(opponetsButtons, false);
                     }
                 }
 
-                //oponentul este gata, cand sunt amandoi gata jocul poate sa inceapa
+            }
+            else if(dataString[0] == "YourTurn")
+            {
+                game.setTurn(true);
+                disable_enableButtons(opponetsButtons, true);
             }
             else if(dataString[0]=="Select") //am apasat pe ceva
             {
@@ -198,6 +220,8 @@ namespace WorldBattle
                 if(dataString[2]=="Empty")
                 {
                     game.setTypeYourTable(nrbut, TypesBoard.TestedEmpty);
+                    disable_enableButtons(opponetsButtons, false);
+
                 }
                 else
                 {
@@ -220,17 +244,29 @@ namespace WorldBattle
 
 
 
+        private void endTurn()
+        {
+            game.setTurn(false);
+            yourTurnButton.IsEnabled = false;
+            WriteMessage("YourTurn");
+        }
 
-
-        private void yourturnbutton_Click(object sender, RoutedEventArgs e)
+        private void yourTurnButton_Click(object sender, RoutedEventArgs e)
         {
             //trimite mesaj de trimis 
             //seteaza turn to false
+            endTurn();
         }
 
-        private void readybutton_Click(object sender, RoutedEventArgs e)
+        private void readyButton_Click(object sender, RoutedEventArgs e)
         {
-            //trimitem mesaj catre adversar ca e ready
+            // TO DO: VERIFICAM CONDITII INAINTE SA FACEM ASTEA
+            //CONDITII : DACA S-AU PUS TOATE BARCILE, ETC ETC
+
+            game.setMineStateReady(false); //we are done preparing... we are ready for fighT
+            disable_enableButtons(mytableButtons, false);
+            readyButton.IsEnabled = false;
+            WriteMessage("Ready");
         }
 
 
@@ -244,7 +280,7 @@ namespace WorldBattle
             this.opponetsButtons[5] = Button5;
             this.opponetsButtons[6] = Button6;
             this.opponetsButtons[7] = Button7;
-
+            
             this.opponetsButtons[8] = Button8;
             this.opponetsButtons[9] = Button9;
             this.opponetsButtons[10] = Button10;
@@ -307,8 +343,85 @@ namespace WorldBattle
             this.opponetsButtons[61] = Button61;
             this.opponetsButtons[62] = Button62;
             this.opponetsButtons[63] = Button63;
+
             //fa si pt restul butoanelor din tabla oponentului
             //si la tabla noatra??
+            //####DONE###
+        }
+
+        private void GenerateMyTableButtonArray()
+        {
+            this.mytableButtons[0] = MButton0;
+            this.mytableButtons[1] = MButton1;
+            this.mytableButtons[2] = MButton2;
+            this.mytableButtons[3] = MButton3;
+            this.mytableButtons[4] = MButton4;
+            this.mytableButtons[5] = MButton5;
+            this.mytableButtons[6] = MButton6;
+            this.mytableButtons[7] = MButton7;
+
+            this.mytableButtons[8] = MButton8;
+            this.mytableButtons[9] = MButton9;
+            this.mytableButtons[10] = MButton10;
+            this.mytableButtons[11] = MButton11;
+            this.mytableButtons[12] = MButton12;
+            this.mytableButtons[13] = MButton13;
+            this.mytableButtons[14] = MButton14;
+            this.mytableButtons[15] = MButton15;
+
+            this.mytableButtons[16] = MButton16;
+            this.mytableButtons[17] = MButton17;
+            this.mytableButtons[18] = MButton18;
+            this.mytableButtons[19] = MButton19;
+            this.mytableButtons[20] = MButton20;
+            this.mytableButtons[21] = MButton21;
+            this.mytableButtons[22] = MButton22;
+            this.mytableButtons[23] = MButton23;
+
+            this.mytableButtons[24] = MButton24;
+            this.mytableButtons[25] = MButton25;
+            this.mytableButtons[26] = MButton26;
+            this.mytableButtons[27] = MButton27;
+            this.mytableButtons[28] = MButton28;
+            this.mytableButtons[29] = MButton29;
+            this.mytableButtons[30] = MButton30;
+            this.mytableButtons[31] = MButton31;
+
+            this.mytableButtons[32] = MButton32;
+            this.mytableButtons[33] = MButton33;
+            this.mytableButtons[34] = MButton34;
+            this.mytableButtons[35] = MButton35;
+            this.mytableButtons[36] = MButton36;
+            this.mytableButtons[37] = MButton37;
+            this.mytableButtons[38] = MButton38;
+            this.mytableButtons[39] = MButton39;
+
+            this.mytableButtons[40] = MButton40;
+            this.mytableButtons[41] = MButton41;
+            this.mytableButtons[42] = MButton42;
+            this.mytableButtons[43] = MButton43;
+            this.mytableButtons[44] = MButton44;
+            this.mytableButtons[45] = MButton45;
+            this.mytableButtons[46] = MButton46;
+            this.mytableButtons[47] = MButton47;
+
+            this.mytableButtons[48] = MButton48;
+            this.mytableButtons[49] = MButton49;
+            this.mytableButtons[50] = MButton50;
+            this.mytableButtons[51] = MButton51;
+            this.mytableButtons[52] = MButton52;
+            this.mytableButtons[53] = MButton53;
+            this.mytableButtons[54] = MButton54;
+            this.mytableButtons[55] = MButton55;
+
+            this.mytableButtons[56] = MButton56;
+            this.mytableButtons[57] = MButton57;
+            this.mytableButtons[58] = MButton58;
+            this.mytableButtons[59] = MButton59;
+            this.mytableButtons[60] = MButton60;
+            this.mytableButtons[61] = MButton61;
+            this.mytableButtons[62] = MButton62;
+            this.mytableButtons[63] = MButton63;
         }
 
         private void Button0_Click_1(object sender, RoutedEventArgs e)

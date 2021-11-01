@@ -74,9 +74,12 @@ namespace WorldBattle
         public String GetRecentMove(){ return this.recentMove; }
         public bool isOver() { return gameOver; }
         public bool isTurn() { return turn; }
+        public void setTurn(bool x) { turn = x; }
         public bool isInPrepareMode() { return prepare; }
         public bool isOpponentReady() { return opponentready; }
         public void setOpponentReady(bool x){ this.opponentready = x;}
+        public void setMineStateReady(bool x) { this.prepare = x; }
+        
         
         
         public void EndGame()
