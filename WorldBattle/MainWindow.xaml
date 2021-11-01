@@ -8,8 +8,8 @@
         Title="WorldBattle" Height="450" Width="800">
     <Grid>
         <Label Content="WorldBattle" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="292,22,282,338" FontFamily="Times New Roman" FontSize="40" Width="220" />
-        <TextBox x:Name="ipTextBox" HorizontalAlignment="Left" Height="25" Margin="145,152,0,0" TextWrapping="Wrap" Text="Ip" VerticalAlignment="Top" Width="171" />
-        <TextBox x:Name="portTextBox" HorizontalAlignment="Left" Height="23" Margin="145,202,0,0" TextWrapping="Wrap" Text="Port" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="ipTextBox" HorizontalAlignment="Left" Height="25" Margin="145,152,0,0" TextWrapping="Wrap" Text="127.0.0.1" VerticalAlignment="Top" Width="171" />
+        <TextBox x:Name="portTextBox" HorizontalAlignment="Left" Height="23" Margin="145,202,0,0" TextWrapping="Wrap" Text="3000" VerticalAlignment="Top" Width="120" />
         <Button x:Name="hostButton" Content="Host" HorizontalAlignment="Left" Margin="107,288,0,0" VerticalAlignment="Top" Width="75" Click="HostButton_Click"/>
         <Button x:Name="guestButton" Content="Join" HorizontalAlignment="Left" Margin="241,288,0,0" VerticalAlignment="Top" Width="75" Click="guestButton_Click"/>
         <ComboBox HorizontalAlignment="Left" Margin="588,140,0,0" VerticalAlignment="Top" Width="120" >

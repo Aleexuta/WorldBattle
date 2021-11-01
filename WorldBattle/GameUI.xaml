@@ -184,8 +184,8 @@
 
         </Grid>
         <TextBlock x:Name="subtitle" HorizontalAlignment="Left" Margin="397,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="87" Width="418" FontSize="25"/>
-        <Button x:Name="yourturnbutton" Content="End Turn" HorizontalAlignment="Left" Margin="686,707,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="yourturnbutton_Click"/>
-        <Button x:Name="readybutton" Content="Ready" HorizontalAlignment="Left" Margin="264,707,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="readybutton_Click" />
+        <Button x:Name="yourTurnButton" Content="End Turn" HorizontalAlignment="Left" Margin="686,707,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="yourTurnButton_Click"/>
+        <Button x:Name="readyButton" Content="Ready" HorizontalAlignment="Left" Margin="264,707,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="readyButton_Click" />
 
 
 

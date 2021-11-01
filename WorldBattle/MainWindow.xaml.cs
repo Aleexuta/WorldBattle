@@ -173,5 +173,7 @@ namespace WorldBattle
             GameUI game = new GameUI(stream, "Second");
             game.ShowDialog();
         }
+
+        
     }
 }
