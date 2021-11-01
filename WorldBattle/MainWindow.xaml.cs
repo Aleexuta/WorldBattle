@@ -47,6 +47,7 @@ namespace WorldBattle
         */
         private void WriteMessage(String data)
         {
+            
             Byte[] bytes = new Byte[256];
             bytes = System.Text.Encoding.ASCII.GetBytes(data);
             stream.Write(bytes, 0, bytes.Length);

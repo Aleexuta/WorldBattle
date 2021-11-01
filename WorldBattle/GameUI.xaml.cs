@@ -41,17 +41,18 @@ namespace WorldBattle
             disable_enableButtons(opponetsButtons, false);
             this.stream = stream;
             this.game = new Game(player);
-            //TODO
-            //seteaza subtitlul pe prepare si abia dupa ce e gata prepararea se seteaza randul
-            //if (player == "First")
-            //{
-            //    this.subtitle.Text = "You are the host.\nYour opponent goes first";
-            //}
-            //else
-            //{
-            //    this.subtitle.Text = "You are the guest. \nIt's your turn first";
-            //}
-          //  UpdateBoard();
+            yourTurnButton.IsEnabled=false;
+           // TODO
+           // seteaza subtitlul pe prepare si abia dupa ce e gata prepararea se seteaza randul
+            if (player == "First")
+            {
+                this.subtitle.Text = "You are the host.\nYour opponent goes first";
+            }
+            else
+            {
+                this.subtitle.Text = "You are the guest. \nIt's your turn first";
+            }
+            //  UpdateBoard();
             if (!game.isTurn())
             {
                 WaitForResponse();
@@ -76,6 +77,7 @@ namespace WorldBattle
                 {
                     WriteMessage("Select," + Convert.ToString(button));//trimitem pozitia pe care dorim sa o incercam 
                 }
+                WaitForResponse();
             }
         }
         private void OnOurTableClick(object sender, EventArgs e, int button)
@@ -117,17 +119,17 @@ namespace WorldBattle
             //pozitia unde am dat click si se aseaza un jeton ramane asa pana la finalul meciului   
             if(game.getTypeFromYourTable(position)==TypesBoard.TestedEmpty)
             {
-                //se pune jeton de nu e nimic
-                var brush = new ImageBrush();
-                brush.ImageSource = new BitmapImage(new Uri("Photos/GrayX.jpeg"));
-                opponetsButtons[position].Background = brush;
+               // se pune jeton de nu e nimic
+                Image brush = new Image();
+                brush.Source = new BitmapImage(new Uri("/Poze/GrayX.jpeg", UriKind.Relative));
+                opponetsButtons[position].Content=brush;
             }
             else
             {
                 //se pune jeton ca e ceva
-                var brush = new ImageBrush();
-                brush.ImageSource = new BitmapImage(new Uri("Photos/RedX.jpeg"));
-                opponetsButtons[position].Background = brush;
+                Image brush = new Image();
+                brush.Source = new BitmapImage(new Uri("/Poze/RedX.jpeg", UriKind.Relative));
+                opponetsButtons[position].Content = brush;
             }
         }
         private void UpdateMyBoard(int position)
@@ -135,7 +137,7 @@ namespace WorldBattle
             if(game.getTypeFromTable(position)==TypesBoard.TestedEmpty)
             {
                 //seteaza ca a fost incercata
-                mytableButtons[position].Background = Brushes.Green;
+                mytableButtons[position].Background = new SolidColorBrush(Colors.Green);
  
             }
             else
@@ -170,29 +172,50 @@ namespace WorldBattle
             if(dataString[0]=="Ready")
             {
                 game.setOpponentReady(true);
-                if (game.isInPrepareMode() == false)//daca eu sunt gata de joc si e si adversarul
+                //if (game.isInPrepareMode() == false)//daca eu sunt gata de joc si e si adversarul
+                //{
+
+                //    if (game.isTurn() == true)//daca e randul meu
+                //    {
+                //        //TODO
+                //        //functie de gata cu prepararea
+                //        //o sa dea disable la toate butoanele de pe tabla mea si o afiseaza pe a adversarului
+
+                //        //{i guess it's all done}
+                //        disable_enableButtons(opponetsButtons, true);
+                //        yourTurnButton.IsEnabled = true;
+
+                //    }
+                //    else
+                //    {
+                //        disable_enableButtons(opponetsButtons, false);
+                //        yourTurnButton.IsEnabled = false;
+                //    }
+                //}
+                if (game.isInPrepareMode() == false)
                 {
-                    if (game.isTurn() == true)//daca e randul meu
+                    if (game.isTurn() == true)
                     {
-                        //TODO
-                        //functie de gata cu prepararea
-                        //o sa dea disable la toate butoanele de pe tabla mea si o afiseaza pe a adversarului
-
-
-                        //{i guess it's all done}
+                        subtitle.Text = "este randul tau";
+                        yourTurnButton.IsEnabled = true;
                         disable_enableButtons(opponetsButtons, true);
-
                     }
                     else
                     {
+                        yourTurnButton.IsEnabled = false;
                         disable_enableButtons(opponetsButtons, false);
+                        WriteMessage("YourTurn");
                     }
                 }
+
+                this.subtitle.Text="esti asteptat";
 
             }
             else if(dataString[0] == "YourTurn")
             {
+                subtitle.Text = "VEzi ca este randul tau";
                 game.setTurn(true);
+                yourTurnButton.IsEnabled = true;
                 disable_enableButtons(opponetsButtons, true);
             }
             else if(dataString[0]=="Select") //am apasat pe ceva
@@ -232,6 +255,8 @@ namespace WorldBattle
                 UpdateYourBoard(nrbut);
                 opponetsButtons[nrbut].IsEnabled = false;
             }
+
+            WaitForResponse();
         }
 
         private void WriteMessage(String data)
@@ -266,7 +291,28 @@ namespace WorldBattle
             game.setMineStateReady(false); //we are done preparing... we are ready for fighT
             disable_enableButtons(mytableButtons, false);
             readyButton.IsEnabled = false;
-            WriteMessage("Ready");
+            if (game.isOpponentReady() == true)
+            {
+                if (game.isTurn() == true)
+                {
+                    subtitle.Text = "este randul tau";
+                    yourTurnButton.IsEnabled = true;
+                    disable_enableButtons(opponetsButtons, true);
+                }
+                else
+                {
+                    yourTurnButton.IsEnabled = false;
+                    disable_enableButtons(opponetsButtons, false);
+                    WriteMessage("YourTurn");
+                }
+            }
+
+            else
+            {
+                subtitle.Text = "astepti";
+                WriteMessage("Ready");
+            }
+            WaitForResponse();
         }
 
 
