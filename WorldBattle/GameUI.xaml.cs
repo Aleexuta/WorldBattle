@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -38,6 +39,7 @@ namespace WorldBattle
             //seteaza butoanele adversarului pe disable
             GenerateOpponentButtonArray();
             GenerateMyTableButtonArray();
+            GeneratePhotos();
             disable_enableButtons(opponetsButtons, false);
             this.stream = stream;
             this.game = new Game(player);
@@ -47,11 +49,11 @@ namespace WorldBattle
             // seteaza subtitlul pe prepare si abia dupa ce e gata prepararea se seteaza randul
             if (player == "First")
             {
-                this.subtitle.Text = "You are the host.\nYour opponent goes first";
+                this.subtitle.Text = "You are the host.\nPrepare your table and click on ready.";
             }
             else
             {
-                this.subtitle.Text = "You are the guest. \nIt's your turn first";
+                this.subtitle.Text = "You are the guest.\nPrepare your table and click on ready.";
             }
             //  UpdateBoard();
             if (!game.isTurn())
@@ -185,31 +187,13 @@ namespace WorldBattle
             if(dataString[0]=="Ready")
             {
                 game.setOpponentReady(true);
-                //if (game.isInPrepareMode() == false)//daca eu sunt gata de joc si e si adversarul
-                //{
+                this.subtitle.Text = "Your opponent is ready.";
 
-                //    if (game.isTurn() == true)//daca e randul meu
-                //    {
-                //        //TODO
-                //        //functie de gata cu prepararea
-                //        //o sa dea disable la toate butoanele de pe tabla mea si o afiseaza pe a adversarului
-
-                //        //{i guess it's all done}
-                //        disable_enableButtons(opponetsButtons, true);
-                //        yourTurnButton.IsEnabled = true;
-
-                //    }
-                //    else
-                //    {
-                //        disable_enableButtons(opponetsButtons, false);
-                //        yourTurnButton.IsEnabled = false;
-                //    }
-                //}
                 if (game.isInPrepareMode() == false)
                 {
                     if (game.isTurn() == true)
                     {
-                        subtitle.Text = "este randul tau";
+                        subtitle.Text = "It's your turn";
                         yourTurnButton.IsEnabled = true;
                         disable_enableButtons(opponetsButtons, true);
                     }
@@ -221,12 +205,12 @@ namespace WorldBattle
                     }
                 }
 
-                this.subtitle.Text="esti asteptat";
+
 
             }
             else if(dataString[0] == "YourTurn")
             {
-                subtitle.Text = "VEzi ca este randul tau";
+                subtitle.Text = "It's your turn";
                 game.setTurn(true);
                 yourTurnButton.IsEnabled = true;
                 disable_enableButtons(opponetsButtons, true);
@@ -257,10 +241,11 @@ namespace WorldBattle
                 {
                     game.setTypeYourTable(nrbut, TypesBoard.TestedEmpty);
                     disable_enableButtons(opponetsButtons, false);
-
+                    yourTurnButton.IsEnabled = true;
                 }
                 else
                 {
+                    yourTurnButton.IsEnabled = false;
                     game.setTypeYourTable(nrbut, TypesBoard.TestedFull);
                 }
                 //TODO
@@ -284,6 +269,7 @@ namespace WorldBattle
 
         private void endTurn()
         {
+            this.subtitle.Text = "Wait for opponent to  end";
             game.setTurn(false);
             yourTurnButton.IsEnabled = false;
             WriteMessage("YourTurn");
@@ -291,8 +277,8 @@ namespace WorldBattle
 
         private void yourTurnButton_Click(object sender, RoutedEventArgs e)
         {
-            //trimite mesaj de trimis 
-            //seteaza turn to false
+            //TODO
+            // verifica sa aiba dreptul de terminare(nu mai poate apasa pe tabla oponentului pt ca nu a ghicit
             endTurn();
         }
 
@@ -308,7 +294,7 @@ namespace WorldBattle
             {
                 if (game.isTurn() == true)
                 {
-                    subtitle.Text = "este randul tau";
+                    subtitle.Text = "It's your turn";
                     yourTurnButton.IsEnabled = true;
                     disable_enableButtons(opponetsButtons, true);
                 }
@@ -322,7 +308,7 @@ namespace WorldBattle
 
             else
             {
-                subtitle.Text = "astepti";
+                subtitle.Text = "Waiting for opponent";
                 WriteMessage("Ready");
             }
             WaitForResponse();
@@ -403,8 +389,6 @@ namespace WorldBattle
             this.opponetsButtons[62] = Button62;
             this.opponetsButtons[63] = Button63;
 
-            //fa si pt restul butoanelor din tabla oponentului
-            //si la tabla noatra??
             //####DONE###
         }
 
@@ -419,68 +403,68 @@ namespace WorldBattle
             this.mytableButtons[6] = MButton6;
             this.mytableButtons[7] = MButton7;
 
-            this.mytableButtons[8] = MButton8;
-            this.mytableButtons[9] = MButton9;
-            this.mytableButtons[10] = MButton10;
-            this.mytableButtons[11] = MButton11;
-            this.mytableButtons[12] = MButton12;
-            this.mytableButtons[13] = MButton13;
-            this.mytableButtons[14] = MButton14;
-            this.mytableButtons[15] = MButton15;
+            //this.mytableButtons[8] = MButton8;
+            //this.mytableButtons[9] = MButton9;
+            //this.mytableButtons[10] = MButton10;
+            //this.mytableButtons[11] = MButton11;
+            //this.mytableButtons[12] = MButton12;
+            //this.mytableButtons[13] = MButton13;
+            //this.mytableButtons[14] = MButton14;
+            //this.mytableButtons[15] = MButton15;
 
-            this.mytableButtons[16] = MButton16;
-            this.mytableButtons[17] = MButton17;
-            this.mytableButtons[18] = MButton18;
-            this.mytableButtons[19] = MButton19;
-            this.mytableButtons[20] = MButton20;
-            this.mytableButtons[21] = MButton21;
-            this.mytableButtons[22] = MButton22;
-            this.mytableButtons[23] = MButton23;
+            //this.mytableButtons[16] = MButton16;
+            //this.mytableButtons[17] = MButton17;
+            //this.mytableButtons[18] = MButton18;
+            //this.mytableButtons[19] = MButton19;
+            //this.mytableButtons[20] = MButton20;
+            //this.mytableButtons[21] = MButton21;
+            //this.mytableButtons[22] = MButton22;
+            //this.mytableButtons[23] = MButton23;
 
-            this.mytableButtons[24] = MButton24;
-            this.mytableButtons[25] = MButton25;
-            this.mytableButtons[26] = MButton26;
-            this.mytableButtons[27] = MButton27;
-            this.mytableButtons[28] = MButton28;
-            this.mytableButtons[29] = MButton29;
-            this.mytableButtons[30] = MButton30;
-            this.mytableButtons[31] = MButton31;
+            //this.mytableButtons[24] = MButton24;
+            //this.mytableButtons[25] = MButton25;
+            //this.mytableButtons[26] = MButton26;
+            //this.mytableButtons[27] = MButton27;
+            //this.mytableButtons[28] = MButton28;
+            //this.mytableButtons[29] = MButton29;
+            //this.mytableButtons[30] = MButton30;
+            //this.mytableButtons[31] = MButton31;
 
-            this.mytableButtons[32] = MButton32;
-            this.mytableButtons[33] = MButton33;
-            this.mytableButtons[34] = MButton34;
-            this.mytableButtons[35] = MButton35;
-            this.mytableButtons[36] = MButton36;
-            this.mytableButtons[37] = MButton37;
-            this.mytableButtons[38] = MButton38;
-            this.mytableButtons[39] = MButton39;
+            //this.mytableButtons[32] = MButton32;
+            //this.mytableButtons[33] = MButton33;
+            //this.mytableButtons[34] = MButton34;
+            //this.mytableButtons[35] = MButton35;
+            //this.mytableButtons[36] = MButton36;
+            //this.mytableButtons[37] = MButton37;
+            //this.mytableButtons[38] = MButton38;
+            //this.mytableButtons[39] = MButton39;
 
-            this.mytableButtons[40] = MButton40;
-            this.mytableButtons[41] = MButton41;
-            this.mytableButtons[42] = MButton42;
-            this.mytableButtons[43] = MButton43;
-            this.mytableButtons[44] = MButton44;
-            this.mytableButtons[45] = MButton45;
-            this.mytableButtons[46] = MButton46;
-            this.mytableButtons[47] = MButton47;
+            //this.mytableButtons[40] = MButton40;
+            //this.mytableButtons[41] = MButton41;
+            //this.mytableButtons[42] = MButton42;
+            //this.mytableButtons[43] = MButton43;
+            //this.mytableButtons[44] = MButton44;
+            //this.mytableButtons[45] = MButton45;
+            //this.mytableButtons[46] = MButton46;
+            //this.mytableButtons[47] = MButton47;
 
-            this.mytableButtons[48] = MButton48;
-            this.mytableButtons[49] = MButton49;
-            this.mytableButtons[50] = MButton50;
-            this.mytableButtons[51] = MButton51;
-            this.mytableButtons[52] = MButton52;
-            this.mytableButtons[53] = MButton53;
-            this.mytableButtons[54] = MButton54;
-            this.mytableButtons[55] = MButton55;
+            //this.mytableButtons[48] = MButton48;
+            //this.mytableButtons[49] = MButton49;
+            //this.mytableButtons[50] = MButton50;
+            //this.mytableButtons[51] = MButton51;
+            //this.mytableButtons[52] = MButton52;
+            //this.mytableButtons[53] = MButton53;
+            //this.mytableButtons[54] = MButton54;
+            //this.mytableButtons[55] = MButton55;
 
-            this.mytableButtons[56] = MButton56;
-            this.mytableButtons[57] = MButton57;
-            this.mytableButtons[58] = MButton58;
-            this.mytableButtons[59] = MButton59;
-            this.mytableButtons[60] = MButton60;
-            this.mytableButtons[61] = MButton61;
-            this.mytableButtons[62] = MButton62;
-            this.mytableButtons[63] = MButton63;
+            //this.mytableButtons[56] = MButton56;
+            //this.mytableButtons[57] = MButton57;
+            //this.mytableButtons[58] = MButton58;
+            //this.mytableButtons[59] = MButton59;
+            //this.mytableButtons[60] = MButton60;
+            //this.mytableButtons[61] = MButton61;
+            //this.mytableButtons[62] = MButton62;
+            //this.mytableButtons[63] = MButton63;
         }
 
         private void Button0_Click_1(object sender, RoutedEventArgs e)
@@ -802,6 +786,84 @@ namespace WorldBattle
         {
             OnOpponentClick(sender, e, 63);
         }
+
+
+        Image selectedimage = null;
+        //mai bine fa un hashmap cu imaginea ceva legat de cap, ca sa se plaseze in canvas in functie de cap
+
+
+        private void GeneratePhotos()
+        {
+            //poza1
+            BitmapImage bit = new BitmapImage(new Uri("Poze/barca1.png", UriKind.Relative));
+        
+            poza1.Source = bit;
+            BitmapImage bit2 = (BitmapImage)poza1.Source;
+            TransformedBitmap trans = new TransformedBitmap();
+            trans.BeginInit();
+            trans.Source = bit2;
+            RotateTransform rot = new RotateTransform(90);
+            trans.Transform = rot;
+            trans.EndInit();
+            poza1.Source = trans;
+            poza1.Height = 60*4;
+            poza1.Width = 60;
+        }
+
+        private void rotateImage(Image img)
+        {
+            TransformedBitmap bit = (TransformedBitmap)img.Source;
+            TransformedBitmap trans = new TransformedBitmap();
+            trans.BeginInit();
+            bit.Transform.Value.Rotate(90);
+            trans.Source = bit;
+            
+            trans.Transform = bit.Transform;
+
+            trans.EndInit();
+            double aux = img.Width;
+            img.Width = img.Height;
+            img.Height = aux;
+            img.Source = trans;
+
+        }
+        private void movePhoto(double left, double top)
+        {
+            Image bodyimage = new Image
+            {
+                Width = selectedimage.Width,
+                Height = selectedimage.Height,
+                Source = selectedimage.Source
+              
+            };
+            mytable.Children.Add(bodyimage);
+            Canvas.SetTop(bodyimage,top);
+            Canvas.SetLeft(bodyimage, left);
+            selectedimage.Width = 0;
+            selectedimage.Height = 0;
+            selectedimage.Source = null;
+            selectedimage = null;
+        }
+
+        private void poza1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            selectedimage = poza1;
+        }
+
+        private void poza1_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            rotateImage(poza1);
+        }
+
+        private void MButton0_Click(object sender, RoutedEventArgs e)
+        {
+            Button but = (Button)sender;
+            if (selectedimage!=null)
+            {
+                movePhoto((double)but.GetValue(Canvas.LeftProperty),(double) but.GetValue(Canvas.TopProperty));
+            }
+        }
+
 
 
 

@@ -5,103 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldBattle"
         mc:Ignorable="d"
-        Title="GameUI" MinHeight="800" MinWidth="1200" 
-        MaxHeight="850" MaxWidth="1250" d:DesignWidth="1206" d:DesignHeight="806" >
-    <Grid MaxHeight="850" MaxWidth="1250" >
-        <Grid Name="mytable" Margin="0,0,628,124" Background="Pink" Height="480" Width="480" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+        Title="GameUI" MinHeight="800" MinWidth="1350" 
+        MaxHeight="850" MaxWidth="1400
+        " d:DesignWidth="1400" d:DesignHeight="850" >
+    <Grid MaxHeight="850" MaxWidth="1400" >
+        <Canvas Name="mytable" Margin="0,0,548,139" Background="Pink" Height="480" Width="480" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+
+            <Button x:Name="MButton0" Width="60" Height="60" Opacity="0.65" Canvas.Left="0" Canvas.Top="0" Click="MButton0_Click"/>
+            <Button x:Name="MButton1"  Width="60" Height="60" Opacity="0.65" Canvas.Left="60" Canvas.Top="0" />
+            <Button x:Name="MButton2"  Width="60" Height="60" Opacity="0.65" Canvas.Left="120" Canvas.Top="0"/>
+            <Button x:Name="MButton3"  Width="60" Height="60" Opacity="0.65" Canvas.Left="180" Canvas.Top="0"/>
+            <Button x:Name="MButton4"  Width="60" Height="60" Opacity="0.65" Canvas.Left="240" Canvas.Top="0"/>
+            <Button x:Name="MButton5"  Width="60" Height="60" Opacity="0.65" Canvas.Left="300" Canvas.Top="0"/>
+            <Button x:Name="MButton6"  Width="60" Height="60" Opacity="0.65" Canvas.Left="360" Canvas.Top="0"/>
+            <Button x:Name="MButton7"  Width="60" Height="60" Opacity="0.65" Canvas.Left="420" Canvas.Top="0"/>
+
+
+
+        </Canvas>
+
+        <Grid Name="opponenttable" Height="480" Width="480" Margin="882,200,32,141" Background="Aqua">
             <Grid.RowDefinitions>
                 <RowDefinition Height="121*"/>
-                <RowDefinition Height="51*"/>
-                <RowDefinition Height="96*"/>
-                <RowDefinition Height="39*"/>
-                <RowDefinition Height="166*"/>
-                <RowDefinition Height="8*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="59*"/>
-                <ColumnDefinition Width="61*"/>
-            </Grid.ColumnDefinitions>
-
-
-           
-                <Button x:Name="MButton0" Margin="0,0,176,61"  Width="60" Height="60" Opacity="1" Background="#FF8D27C7" />
-            <Button x:Name="MButton1" Margin="60,0,116,61"  Width="60" Height="60" Opacity="0.65"/>
-            <Button x:Name="MButton2" Margin="120,0,56,61"  Width="60" Height="60" Opacity="0.65" />
-            <Button x:Name="MButton3" Margin="180,0,240,61"  Width="60" Height="60" Grid.ColumnSpan="2" Opacity="0.65"  />
-            <Button x:Name="MButton4" Margin="4,0,180,61"  Width="60" Height="60" Grid.Column="1" Opacity="0.65"  />
-            <Button x:Name="MButton5" Margin="64,0,120,61"  Width="60" Height="60" Grid.Column="1" Opacity="0.65" />
-            <Button x:Name="MButton6" Margin="124,0,60,61"  Width="60" Height="60" Grid.Column="1" Opacity="0.65" />
-            <Button x:Name="MButton7" Margin="184,0,0,61"  Width="60" Height="60" Grid.Column="1" Opacity="0.65"  />
-
-            <Button x:Name="MButton8" Margin="0,60,176,1"  Width="60" Height="60"  Opacity="0.65"  />
-            <Button x:Name="MButton9" Margin="60,60,116,1"  Width="60" Height="60"  Opacity="0.65" />
-            <Button x:Name="MButton10" Margin="120,60,56,1"  Width="60" Height="60"  Opacity="0.65"  />
-            <Button x:Name="MButton11" Margin="180,60,240,1"  Width="60" Height="60" Grid.ColumnSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton12" Margin="4,60,180,1"  Width="60" Height="60" Grid.Column="1"  Opacity="0.65"  />
-            <Button x:Name="MButton13" Margin="64,60,120,1"  Width="60" Height="60" Grid.Column="1"  Opacity="0.65" />
-            <Button x:Name="MButton14" Margin="124,60,60,1"  Width="60" Height="60" Grid.Column="1"  Opacity="0.65"  />
-            <Button x:Name="MButton15" Margin="184,60,0,1"  Width="60" Height="60" Grid.Column="1"  Opacity="0.65"  />
-
-            <Button x:Name="MButton16" Margin="0,120,176,88"  Width="60" Height="60" Grid.RowSpan="3"  Opacity="0.65"   />
-            <Button x:Name="MButton17" Margin="60,120,116,88"  Width="60" Height="60" Grid.RowSpan="3"  Opacity="0.65"  />
-            <Button x:Name="MButton18" Margin="120,120,56,88"  Width="60" Height="60" Grid.RowSpan="3"  Opacity="0.65"  />
-            <Button x:Name="MButton19" Margin="180,120,240,88"  Width="60" Height="60" Grid.ColumnSpan="2" Grid.RowSpan="3"  Opacity="0.65"  />
-            <Button x:Name="MButton20" Margin="4,120,180,88"  Width="60" Height="60" Grid.Column="1" Grid.RowSpan="3"  Opacity="0.65"  />
-            <Button x:Name="MButton21" Margin="64,120,120,88"  Width="60" Height="60" Grid.Column="1" Grid.RowSpan="3"  Opacity="0.65"/>
-            <Button x:Name="MButton22" Margin="124,120,60,88"  Width="60" Height="60" Grid.Column="1" Grid.RowSpan="3"  Opacity="0.65"  />
-            <Button x:Name="MButton23" Margin="184,120,0,88"  Width="60" Height="60" Grid.Column="1" Grid.RowSpan="3"  Opacity="0.65"  />
-
-            <Button x:Name="MButton24" Margin="0,8,176,28"  Width="60" Height="60" Grid.Row="2"  Opacity="0.65"   />
-            <Button x:Name="MButton25" Margin="60,8,116,28"  Width="60" Height="60" Grid.Row="2"  Opacity="0.65"  />
-            <Button x:Name="MButton26" Margin="120,8,56,28"  Width="60" Height="60" Grid.Row="2"  Opacity="0.65"  />
-            <Button x:Name="MButton27" Margin="180,8,240,28"  Width="60" Height="60" Grid.ColumnSpan="2" Grid.Row="2"  Opacity="0.65"  />
-            <Button x:Name="MButton28" Margin="4,8,180,28"  Width="60" Height="60" Grid.Column="1" Grid.Row="2"  Opacity="0.65"  />
-            <Button x:Name="MButton29" Margin="64,8,120,28"  Width="60" Height="60" Grid.Column="1" Grid.Row="2"  Opacity="0.65" />
-            <Button x:Name="MButton30" Margin="124,8,60,28"  Width="60" Height="60" Grid.Column="1" Grid.Row="2"  Opacity="0.65"  />
-            <Button x:Name="MButton31" Margin="184,8,0,28"  Width="60" Height="60" Grid.Column="1" Grid.Row="2"  Opacity="0.65"  />
-
-
-            <Button x:Name="MButton32" Margin="0,68,176,7"  Width="60" Height="60" Grid.Row="2" Grid.RowSpan="2"  Opacity="0.65"   />
-            <Button x:Name="MButton33" Margin="60,68,116,7"  Width="60" Height="60" Grid.Row="2" Grid.RowSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton34" Margin="120,68,56,7"  Width="60" Height="60" Grid.Row="2" Grid.RowSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton35" Margin="180,68,240,7"  Width="60" Height="60" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton36" Margin="4,68,180,7"  Width="60" Height="60" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton37" Margin="64,68,120,7"  Width="60" Height="60" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"  Opacity="0.65"/>
-            <Button x:Name="MButton38" Margin="124,68,60,7"  Width="60" Height="60" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton39" Margin="184,68,0,7"  Width="60" Height="60" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton40" Margin="0,32,176,113" Height="60" Grid.Row="3" Grid.RowSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton41" Margin="60,32,116,113"  Width="60" Height="60" Grid.Row="3" Grid.RowSpan="2"  Opacity="0.65" />
-            <Button x:Name="MButton42" Margin="120,32,56,113"  Width="60" Height="60" Grid.Row="3" Grid.RowSpan="2"  Opacity="0.65"/>
-            <Button x:Name="MButton43" Margin="180,32,240,113"  Width="60" Height="60" Grid.ColumnSpan="2" Grid.Row="3" Grid.RowSpan="2"  Opacity="0.65" />
-            <Button x:Name="MButton44" Margin="4,32,180,113"  Width="60" Height="60" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2"  Opacity="0.65" />
-            <Button x:Name="MButton45" Margin="64,32,120,113"  Width="60" Height="60" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2"  Opacity="0.65"/>
-            <Button x:Name="MButton46" Margin="124,32,60,113"  Width="60" Height="60" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2"  Opacity="0.65" />
-            <Button x:Name="MButton47" Margin="184,32,0,113"  Width="60" Height="60" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2"  Opacity="0.65" />
-            <Button x:Name="MButton48" Margin="0,54,176,52"  Width="60" Height="60" Grid.Row="4"  Opacity="0.65" />
-            <Button x:Name="MButton49" Margin="60,54,116,52"  Width="60" Height="60" Grid.Row="4"  Opacity="0.65"/>
-            <Button x:Name="MButton50" Margin="120,54,56,52"  Width="60" Height="60" Grid.Row="4"   Opacity="0.65"/>
-            <Button x:Name="MButton51" Margin="180,54,240,52"  Width="60" Height="60" Grid.ColumnSpan="2" Grid.Row="4"  Opacity="0.65" />
-            <Button x:Name="MButton52" Margin="4,54,180,52"  Width="60" Height="60" Grid.Column="1" Grid.Row="4"  Opacity="0.65" />
-            <Button x:Name="MButton53" Margin="64,54,120,52"  Width="60" Height="60" Grid.Column="1" Grid.Row="4" Opacity="0.65" />
-            <Button x:Name="MButton54" Margin="124,54,60,52"  Width="60" Height="60" Grid.Column="1" Grid.Row="4"   Opacity="0.65"/>
-            <Button x:Name="MButton55" Margin="184,54,0,52"  Width="60" Height="60" Grid.Column="1" Grid.Row="4"  Opacity="0.65" />
-            <Button x:Name="MButton56" Margin="0,114,176,0"  Width="60" Height="60" Grid.Row="4"  Grid.RowSpan="2"   Opacity="0.65" />
-            <Button x:Name="MButton57" Margin="60,114,116,0"  Width="60" Height="60" Grid.Row="4" Grid.RowSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton58" Margin="120,114,56,0"  Width="60" Height="60" Grid.Row="4" Grid.RowSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton59" Margin="180,114,240,0"  Width="60" Height="60" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="2"  Opacity="0.65" />
-            <Button x:Name="MButton60" Margin="4,114,180,0"  Width="60" Height="60" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton61" Margin="64,114,120,0"  Width="60" Height="60" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2"  Opacity="0.65"/>
-            <Button x:Name="MButton62" Margin="124,114,60,0"  Width="60" Height="60" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2"  Opacity="0.65"  />
-            <Button x:Name="MButton63" Margin="184,114,0,0"  Width="60" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2"  Opacity="0.65"  />
-
-
-
-        </Grid>
-
-        <Grid Name="opponenttable" Height="480" Width="480" Margin="661,173,59,124" Background="Aqua">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="121*"/>
-                <RowDefinition Height="51*"/>
+                <RowDefinition Height="51"/>
                 <RowDefinition Height="96*"/>
                 <RowDefinition Height="39*"/>
                 <RowDefinition Height="166*"/>
@@ -189,6 +115,13 @@
         <TextBlock x:Name="subtitle" HorizontalAlignment="Left" Margin="397,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="87" Width="418" FontSize="25"/>
         <Button x:Name="yourTurnButton" Content="End Turn" HorizontalAlignment="Left" Margin="686,707,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="yourTurnButton_Click"/>
         <Button x:Name="readyButton" Content="Ready" HorizontalAlignment="Left" Margin="264,707,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="readyButton_Click" />
+
+        <Image x:Name="poza1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" MinHeight="60" MinWidth="60" MaxHeight="300" MaxWidth="300"
+               Source="/Poze/warship-isolated-Back.png" MouseLeftButtonDown="poza1_MouseLeftButtonDown" MouseRightButtonDown="poza1_MouseRightButtonDown" >
+            
+        </Image>
+
+
 
 
 
