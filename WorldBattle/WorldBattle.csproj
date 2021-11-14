@@ -107,12 +107,10 @@
     <Resource Include="Poze\RedX.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Poze\warship-isolated-Back.png" />
-    <Resource Include="Poze\warship-isolated-Front.png" />
-    <Resource Include="Poze\warship-isolated-Mid.png" />
+    <Resource Include="Poze\barca1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Poze\barca1.png" />
+    <Resource Include="Poze\avion1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
