@@ -169,11 +169,6 @@ namespace WorldBattle
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            GameUI game = new GameUI(stream, "Second");
-            game.ShowDialog();
-        }
 
         
     }

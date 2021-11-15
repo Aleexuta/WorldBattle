@@ -20,10 +20,14 @@ namespace WorldBattle
     /// Interaction logic for GameUI.xaml
     /// </summary>
     /// 
+
     
+    //TODO
+    //combo nr de ghiciri pe ecran 
     
     public partial class GameUI : Window
     {
+        int NRPOZE = 4;
         int SIZEBUTTONS = 40;   
         private NetworkStream stream;
         private Game game;
@@ -322,7 +326,7 @@ namespace WorldBattle
                 if (game.isTurn() == true)
                 {
                     Button but = (Button)sender;
-                    String nume = but.Name.Substring(6, but.Name.Length);
+                    String nume = but.Name.Substring(6,but.Name.Length-6);
                     MessageBox.Show("Ai selectat butonul nr " + nume);
                     WriteMessage("Select," + nume);//trimitem pozitia pe care dorim sa o incercam 
                 }
@@ -336,7 +340,7 @@ namespace WorldBattle
                 for (int j = 0; j < 8; j++)
                 {
                     int pos = i * 8 + j;
-                    this.opponetsButtons[pos] = new Button {Name =Convert.ToString("Button"+pos), Width = SIZEBUTTONS, Height = SIZEBUTTONS };
+                    this.opponetsButtons[pos] = new Button {Name ="Button"+pos, Width = SIZEBUTTONS, Height = SIZEBUTTONS };
                     this.opponetsButtons[pos].Click += new RoutedEventHandler(OnOpponentClick);
                     Canvas.SetLeft(this.opponetsButtons[pos], j * SIZEBUTTONS);
                     Canvas.SetTop(this.opponetsButtons[pos], i * SIZEBUTTONS);
@@ -353,7 +357,7 @@ namespace WorldBattle
                 for (int j = 0; j < 8; j++)
                 {
                     int pos = i * 8 + j;
-                    this.mytableButtons[pos] = new Button { Name = Convert.ToString("M_Button" + pos), Width = SIZEBUTTONS, Height = SIZEBUTTONS,Opacity=0.60 };
+                    this.mytableButtons[pos] = new Button { Name = Convert.ToString("M_Button" + pos), Width = SIZEBUTTONS, Height = SIZEBUTTONS, Opacity=1 };
                     this.mytableButtons[pos].Click += new RoutedEventHandler(OnMyTableClick);
                     Canvas.SetLeft(this.mytableButtons[pos], j * SIZEBUTTONS);
                     Canvas.SetTop(this.mytableButtons[pos], i * SIZEBUTTONS);
@@ -443,9 +447,13 @@ namespace WorldBattle
         private void setTheButtons(int nrphoto)
         {
             //in functie de numele pozei din vector si rotatia imaginii se dau disable la anumite butoane
+
         }
         private void movePhoto(double left, double top)//left=distanta fata de stg canvasului a butonului top=fata de top
         {
+
+            //TODO
+            //verifica daca imaginea se poate muta la pozitia propusa de user si la rotatia respetiva
             Image bodyimage = new Image
             {
                 Width = selectedimage.Value.img.Width,
@@ -453,35 +461,32 @@ namespace WorldBattle
                 Source = selectedimage.Value.img.Source
               
             };
-            mytable.Children.Add(bodyimage);
+            fundal.Children.Add(bodyimage);
+      
             double imgtop=0, imgleft=0;
-            if(selectedimage.Value.rot==0)
+            if (selectedimage.Value.rot == 0)
             {
                 imgleft = selectedimage.Value.left;
                 imgtop = selectedimage.Value.top;
             }
             else
                 if (selectedimage.Value.rot == 90)
-                {
-                    imgleft = selectedimage.Value.down;
-                    imgtop = selectedimage.Value.left;
-                }
-                else
+            {
+                imgleft = selectedimage.Value.down;
+                imgtop = selectedimage.Value.left;
+            }
+            else
                     if (selectedimage.Value.rot == 180)
+            {
+                imgleft = selectedimage.Value.right;
+                imgtop = selectedimage.Value.down;
+            }
+            else
+                    if (selectedimage.Value.rot == 270)
                     {
-                        imgleft = selectedimage.Value.right;
-                        imgtop = selectedimage.Value.down;
+                        imgleft = selectedimage.Value.top;
+                        imgtop = selectedimage.Value.right;
                     }
-                    else
-                        if (selectedimage.Value.rot == 270)
-                        {
-                            imgleft = selectedimage.Value.top;
-                            imgtop = selectedimage.Value.right;
-                        }
-            //if (imgtop % SIZEBUTTONS % 2 == 0)
-            //    imgtop -= SIZEBUTTONS / 2;
-            //if (imgleft % SIZEBUTTONS % 2 == 0)
-            //    imgleft += SIZEBUTTONS / 2;
             Canvas.SetTop(bodyimage,top-imgtop);
             Canvas.SetLeft(bodyimage, left-imgleft);
             selectedimage.Value.img.Width = 0;
@@ -489,6 +494,14 @@ namespace WorldBattle
             selectedimage.Value.img.Source = null;
             selectedimage = null;
             //adauga in tabela din game
+            //for(int i=0;i<NRPOZE;i++)
+            //{
+            //    if(images[i].img==selectedimage.Value.img)
+            //    {
+            //        setTheButtons(i);
+            //    }
+            //}
+            
         }
 
         private void LeftClickPhoto(object sender, MouseButtonEventArgs e)
@@ -502,7 +515,7 @@ namespace WorldBattle
         private void RightClickPhoto(object sender, MouseButtonEventArgs e)
         {
             Image img = (Image)sender;
-            for(int i=0;i<4;i++)
+            for(int i=0;i<NRPOZE;i++)
                 if (images[i].img == img)
                     rotateImage(i);
         }

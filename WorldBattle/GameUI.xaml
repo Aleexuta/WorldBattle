@@ -20,20 +20,21 @@
                 <ColumnDefinition x:Name="mytablecol" Width="389"/>
                 <ColumnDefinition x:Name="yourtablecol" Width="433"/>
             </Grid.ColumnDefinitions>
-            <Canvas Name="mytable" Grid.Column="1" Margin="0,0,36,32" Background="Pink" Height="320" Width="320" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-            </Canvas>
 
-            <Canvas Name="opponenttable" Grid.Column="2" Margin="35,75,78,32" Background="Aqua"/>
+            <Canvas Name="opponenttable" Grid.Column="2" Margin="35,75,78,32" MaxHeight="320" MaxWidth="320" Background="Aqua"/>
 
-            <Grid Grid.Column="0" x:Name="pozegrid" Margin="0,10,0,-29">
+            <Grid Grid.Column="0" x:Name="pozegrid">
+
                 <Image x:Name="poza1" HorizontalAlignment="Left" VerticalAlignment="Top"
-                   Source="/Poze/barca1.png" Height="37" Width="196" Margin="46,19,0,0"  />
-                <Image x:Name="poza2" HorizontalAlignment="Left" Margin="63,80,0,0" VerticalAlignment="Top" 
-                   Source="/Poze/avion1.png" Height="125" Width="133"  />
+                   Source="/Poze/barca1.png" Height="41" Width="159" Margin="82,39,0,0"  />
+                <Image x:Name="poza2" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Source="/Poze/avion1.png" Height="124" Width="158" Margin="110,122,0,0"  />
 
             </Grid>
+            <Canvas x:Name="fundal"  Grid.Column="1" Margin="0,0,39,32" Background="Pink" Height="320" Width="320" HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="1"/>
 
 
+            <Canvas x:Name="mytable" Grid.Column="1" Margin="0,0,39,32" Background="White" Height="320" Width="320" HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="0.3"/>
         </Grid>
         <TextBlock x:Name="subtitle" Text="Titlu" Grid.Row="0" HorizontalAlignment="Center"  Margin="418,7,352,394" TextWrapping="Wrap" VerticalAlignment="Center" Height="70" Width="274" FontSize="25" Grid.RowSpan="2" />
 
