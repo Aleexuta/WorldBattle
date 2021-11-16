@@ -28,8 +28,8 @@ namespace WorldBattle
         private bool prepare;
         private bool opponentready;
 
-
-        public Game(String player)
+        static private Game instance=null;
+        private Game(String player)
         {
             this.MyBoardBullets = new TypesBoard[DIM * DIM];
             this.YourBoardBullets = new TypesBoard[DIM * DIM];
@@ -54,6 +54,18 @@ namespace WorldBattle
             }
             PrepareMyTable();
         }
+        static public Game getInstance(String player)
+        {
+            if (instance == null)
+                instance = new Game(player);
+            return instance;
+        }
+        static public Game getInstance()
+        {
+            if (instance!=null)
+                return instance;
+            return null;
+        }
         public TypesBoard getTypeFromTable(int nrbut) 
         {
             return MyBoardBullets[nrbut];
@@ -64,6 +76,8 @@ namespace WorldBattle
         }
         public void setTypeMyTable(int nrbut,TypesBoard type)
         {
+            if (MyBoardBullets[nrbut] == TypesBoard.UntestedFull && type==TypesBoard.UntestedFull)
+                throw new Exception("Ocupata");
             MyBoardBullets[nrbut] = type;
         }
         public void setTypeYourTable(int nrbut, TypesBoard type)

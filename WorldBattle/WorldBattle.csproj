@@ -71,6 +71,7 @@
     <Compile Include="GameUI.xaml.cs">
       <DependentUpon>GameUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImagePos.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
