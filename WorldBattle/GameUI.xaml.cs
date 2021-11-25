@@ -24,7 +24,7 @@ namespace WorldBattle
     
     //TODO
     //combo nr de ghiciri pe ecran 
-    
+
     public partial class GameUI : Window
     {
         int NRPOZE = 2;
@@ -84,20 +84,6 @@ namespace WorldBattle
 
         //daca apasam pe tabla adversarului
        
-        private void OnOurTableClick(object sender, EventArgs e, int button)
-        {
-            if(game.isOver()==false)
-            {
-                if(game.isInPrepareMode()==true)
-                {
-                    //prepar tabla mea
-                    //TODO
-                    //rotate poza
-                    //click pe butonul unde vrem sa punem capul pozei
-                    //punem continuarea "barcii" in jurul pct de cap
-                }
-            }
-        }
         private async void WaitForResponse()
         {
             try
@@ -216,7 +202,7 @@ namespace WorldBattle
                 yourTurnButton.IsEnabled = true;
                 disable_enableButtons(opponetsButtons, true);
             }
-            else if(dataString[0]=="Select") //am apasat pe ceva
+            else if(dataString[0]=="Select") //adversarul a apasat pe ceva , verific la mine ce fel de buton e si transmit mai departe
             {
                 int nrbut = Convert.ToInt32(dataString[1]);//nr butonului
                 string newmessage = "Verified";
@@ -231,8 +217,21 @@ namespace WorldBattle
                 {
                     newmessage += "," + dataString[1] + ",Full";
                     game.setTypeMyTable(nrbut, TypesBoard.TestedFull);
+                    incrementPhotoNumber(nrbut);
                     //TODO
                     //trimite la poza ca a fost nimerit. cand e full trebuie sa trimita la mesaj ca a ghicit poza si id-ul ei
+                    ImagePos img = IsFullPhoto(nrbut);//daca poza e full trimitem poza catre adversar cu pozitile aferente
+                    if (img!=null)
+                    {
+                        newmessage += ",Photo," + img.getID() + "," + 
+                            Convert.ToString(img.m_fullleft) + "," +
+                            Convert.ToString(img.m_fulltop) + "," + 
+                            img.getRot()+","+img.getHeightByRot()+","+img.getWidthByRot();
+                    }
+                    else
+                    {
+                        newmessage += ",Nophoto";
+                    }
                 }
                 UpdateMyBoard(nrbut);
                 WriteMessage(newmessage);
@@ -246,6 +245,7 @@ namespace WorldBattle
                     Infolabel.Text="Nu ai nimerit, nu mai ai dreptul la incercari";
                     //TODO
                     //adauga sunnet de tristete?, sau de splash in apa, dar diferit de cel de bomba
+
                     disable_enableButtons(opponetsButtons, false);
                     yourTurnButton.IsEnabled = true;
                 }
@@ -254,28 +254,112 @@ namespace WorldBattle
                     yourTurnButton.IsEnabled = false;
                     game.setTypeYourTable(nrbut, TypesBoard.TestedFull);
                     BombPlassed();
-                    
-                    
+                    if (dataString[3]=="Photo")
+                    {
+                        setFullPhotoOppTable(dataString[4],Convert.ToDouble(dataString[5]),Convert.ToDouble( dataString[6]), Convert.ToInt32(dataString[7]),
+                            Convert.ToInt32(dataString[8]), Convert.ToInt32(dataString[9]));
+                        //TODO
+                        //daca a primit la mesaj si faptul ca a intregit un element se ia id ul si se adauga poza la pozitia respectiva.
+                        //ATENTIE, primim id-ul pozei, si rotatia pe langa nr butonului
+                        //verifica terminarea jocului
+                        VerifyGameOver();
+
+                    }
+
+
+
+
                     //TODO
                     //adauga sunet de bomba
                 }
-                //TODO
-                //daca a primit la mesaj si faptul ca a intregit un element se ia id ul si se adauga poza la pozitia respectiva.
-                //ATENTIE, primim id-ul pozei, si rotatia pe langa nr butonului
+
                 UpdateYourBoard(nrbut);
                 opponetsButtons[nrbut].IsEnabled = false;
             }
-
+            else if(dataString[0]=="GameOver")
+            {
+                //TODO
+                //afiseaza mesaj ca am pierdut, disable tot
+                MessageBox.Show("Ai pierdut");
+                endGame();
+            }
             WaitForResponse();
+        }
+        private void incrementPhotoNumber(int nrbut)
+        {
+            ImagePos img = getImage(nrbut);
+            img.PhotoTouched();//adversarul a atins poza si incrementam la poza patratelele nimerite
+        }
+        private void setFullPhotoOppTable(String id,double left, double top, int rot, int height, int width)
+        {
+
+            
+            //cream imaginea, in functie de idul pozei incarcam un anumit tip de poza, ii setam inaltimea si latimea
+            //o plasam dupa parametrii primmiti in canvasul oponentului dedesuptul butoanelor
+            MessageBox.Show("Element nimerit");
+            String imguri = getUriForId(id);
+            //nu mereee
+            BitmapImage Bit = new BitmapImage(new Uri(imguri, UriKind.Relative));
+            TransformedBitmap trans = new TransformedBitmap();
+            trans.BeginInit();
+            trans.Source = Bit;
+
+            RotateTransform rot2 = new RotateTransform(rot);
+            trans.Transform = rot2;
+            trans.EndInit();
+            Image newimg = new Image
+            {
+                Height = height*SIZEBUTTONS,
+                Width = width*SIZEBUTTONS
+                
+            };
+            newimg.Source = trans;
+            fundalopponent.Children.Add(newimg);
+            Canvas.SetLeft(newimg, left);
+            Canvas.SetTop(newimg, top);
+
+        }
+
+        private void VerifyGameOver()
+        {
+            //TODO
+            //verifica nr de patratele sa fie egale
+            //da disable la toate butoanele, afiseaza mesaj
+            //trimite mesaj catre adversar ca  a terminat meciul
+            if (NrNimeriri == NrOcupate)
+            {
+                WriteMessage("GameOver"); //transmitem mesajul ca adversarul a castigat
+                MessageBox.Show("Ai castigat");
+                endGame();
+            }
+        }
+
+        private void endGame()
+        {
+            this.Close();
+            //TODO
+            //fa ceva aici, o  poza de game over or smth
+        }
+        private ImagePos IsFullPhoto(int nrbut)
+        {
+            ImagePos img = getImage(nrbut);//imaginea pt care am nimerit pe tabla de joc
+            if(img!=null)
+            {
+                if (img.isPhotoFull() == true)//daca poza e intragita
+                    return img;
+            }
+            return null;
         }
         private void BombPlassed()
         {
+            NrNimeriri++;
             Infolabel.Text = "BUM!.Ai nimerit.\n Mai ai dreptul la o inccercare";
             NrCombo++;
             if(NrCombo>1)
             {  
                 ComboLabel.Text = "COMBO x" + NrCombo;
             }
+
             
         }
         private void WriteMessage(String data)
@@ -284,10 +368,6 @@ namespace WorldBattle
             bytes = System.Text.Encoding.ASCII.GetBytes(data);
             stream.Write(bytes, 0, bytes.Length);
         }
-
-
-
-
         private void endTurn()
         {
             this.subtitle.Text = "Wait for opponent to end";
@@ -301,15 +381,11 @@ namespace WorldBattle
 
         private void yourTurnButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO
-            // verifica sa aiba dreptul de terminare(nu mai poate apasa pe tabla oponentului pt ca nu a ghicit
             endTurn();
         }
 
         private void readyButton_Click(object sender, RoutedEventArgs e)
         {
-            // TO DO: VERIFICAM CONDITII INAINTE SA FACEM ASTEA
-            //CONDITII : DACA S-AU PUS TOATE BARCILE, ETC ETC
             if (NrElementePlasate < NRPOZE)
             {
                 MessageBox.Show("Trebuie sa plasezi toate elementele");
@@ -394,48 +470,41 @@ namespace WorldBattle
         ImagePos selectedimage = null;
         //mai bine fa un hashmap cu imaginea ceva legat de cap, ca sa se plaseze in canvas in functie de cap
 
-
-        private void GeneratePhotos()
+        private void createPhoto(int id,String uri,Image imgsource,int height, int width, String name, 
+            double left, double top, double right, double down,int nrpatratele)
         {
-            //poza1
-            BitmapImage Bit = new BitmapImage(new Uri("Poze\\barca1.png", UriKind.Relative));
-            
-            poza1.Source = Bit;
-            BitmapImage bit = (BitmapImage)poza1.Source;
+            BitmapImage Bit = new BitmapImage(new Uri(uri, UriKind.Relative));
+
+            imgsource.Source = Bit;
+            BitmapImage bit = (BitmapImage)imgsource.Source;
             TransformedBitmap trans = new TransformedBitmap();
             trans.BeginInit();
             trans.Source = bit;
             RotateTransform rot = new RotateTransform(90);
             trans.Transform = rot;
             trans.EndInit();
-            poza1.Source = trans;
-            poza1.Height = SIZEBUTTONS*4;
-            poza1.Width = SIZEBUTTONS;
-            poza1.MouseRightButtonDown += new MouseButtonEventHandler(RightClickPhoto);
-            poza1.MouseLeftButtonDown += new MouseButtonEventHandler(LeftClickPhoto);
-            poza1.Name = "Barca1";
-            images[0] = new ImagePos("Barca1",poza1, 0, 0, 3 * SIZEBUTTONS, 0, 90);
+
+            imgsource.Source = trans;
+            imgsource.Height = SIZEBUTTONS * height;
+            imgsource.Width = SIZEBUTTONS * width;
+            imgsource.MouseRightButtonDown += new MouseButtonEventHandler(RightClickPhoto);
+            imgsource.MouseLeftButtonDown += new MouseButtonEventHandler(LeftClickPhoto);
+            imgsource.Name = name;
+            images[id] = new ImagePos(name, imgsource, left * SIZEBUTTONS, top * SIZEBUTTONS, right * SIZEBUTTONS, down * SIZEBUTTONS, 90, nrpatratele);
+            NrOcupate += images[id].nrParatele;
+            images[id].m_heightinit = height;
+            images[id].m_widthinit = width;
+        }
+        private void GeneratePhotos()
+        {
+            //poza1
 
 
+            createPhoto(0, "Poze\\barca1.png", poza1, 4, 1, "Barca1", 0, 0, 3, 0, 4);
+            //poza 2
 
-            BitmapImage Bit2 = new BitmapImage(new Uri("Poze\\avion1.png", UriKind.Relative));
-            poza2.Source = Bit2;
-            BitmapImage bit2 = (BitmapImage)poza2.Source;
-            TransformedBitmap trans2 = new TransformedBitmap();
-            trans2.BeginInit();
-            trans2.Source = bit2;
-            RotateTransform rot2 = new RotateTransform(90);
-            trans2.Transform = rot2;
-            trans2.EndInit();
 
-            poza2.Source = trans2;
-            poza2.Height = SIZEBUTTONS * 4;
-            poza2.Width = SIZEBUTTONS * 5;
-            poza2.MouseRightButtonDown += new MouseButtonEventHandler(RightClickPhoto);
-            poza2.MouseLeftButtonDown += new MouseButtonEventHandler(LeftClickPhoto);
-            poza2.Name = "Avion1";
-            images[1] = new ImagePos("Avion1",poza2, 1.5 * SIZEBUTTONS, 1.5 * SIZEBUTTONS, 1.5 * SIZEBUTTONS, 2.5 * SIZEBUTTONS, 90);
-
+            createPhoto(1, "Poze\\avion1.png", poza2, 4, 5,"Avion1" ,1.5, 1.5, 1.5, 2.5, 10);
         }
 
         private void rotateImage(int i)
@@ -450,10 +519,10 @@ namespace WorldBattle
 
             trans.EndInit();
             double aux =images[i].getImg().Width;
-           images[i].getImg().Width =images[i].getImg().Height;
-           images[i].getImg().Height = aux;
-           images[i].getImg().Source = trans;
-           images[i].addRot(90);
+            images[i].getImg().Width =images[i].getImg().Height;
+            images[i].getImg().Height = aux;
+            images[i].getImg().Source = trans;
+            images[i].addRot(90);
 
         }
         private bool setTheButtons(int nrphoto, double centerX, double centerY)
@@ -493,12 +562,14 @@ namespace WorldBattle
             fundal.Children.Add(bodyimage);
       
             double imgtop=0, imgleft=0;
-
+            
 
             imgtop = selectedimage.getTopPosition();
             imgleft = selectedimage.getLeftPosition();
             Canvas.SetTop(bodyimage,top-imgtop);
             Canvas.SetLeft(bodyimage, left-imgleft);
+            selectedimage.m_fulltop = top - imgtop;
+            selectedimage.m_fullleft = left - imgleft;
             selectedimage.getImg().Width = 0;
             selectedimage.getImg().Height = 0;
             selectedimage.getImg().Source = null;
@@ -533,10 +604,25 @@ namespace WorldBattle
             }
         }
 
+        private ImagePos getImage(int nrbutton)
+        {
+            foreach(var x in images)
+            {
+                if (x.IsPhotoOnButton(nrbutton))
+                    return x;
+            }
+            return null;
+        }
 
 
-
-
+        private String getUriForId(String id)
+        {
+            if (id == "Avion1")
+                return "..\\..\\Poze\\avion1.png";
+            if (id == "Barca1")
+                return "..\\..\\Poze\\barca1.png";
+            return "";
+        }
         //restul butoanelor
     }
 }
