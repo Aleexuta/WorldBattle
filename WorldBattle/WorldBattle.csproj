@@ -152,5 +152,8 @@
     <Resource Include="Poze\bg_combat.jpg" />
     <Resource Include="Poze\fundal.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\bg.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
