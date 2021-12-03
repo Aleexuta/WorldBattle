@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -10,23 +12,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Net;
-using System.Net.Sockets;
 
 namespace WorldBattle
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CreateGamePage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CreateGamePage : Window
     {
         private NetworkStream stream;
         public String version = "1.0";
-        public MainWindow()
+        private string gamePort = "3000";
+        public CreateGamePage()
         {
             InitializeComponent();
+            terrainComboBox.Items.Add("Apa");
+            terrainComboBox.Items.Add("Ploaie");
+            terrainComboBox.Items.Add("Bataie");
         }
         /*
         * Reads message sent through the network stream
@@ -47,7 +50,7 @@ namespace WorldBattle
         */
         private void WriteMessage(String data)
         {
-            
+
             Byte[] bytes = new Byte[256];
             bytes = System.Text.Encoding.ASCII.GetBytes(data);
             stream.Write(bytes, 0, bytes.Length);
@@ -65,12 +68,23 @@ namespace WorldBattle
             }
         }
 
-        private void HostButton_Click(object sender, RoutedEventArgs e)
+        private void CreateGameButton_Click(object sender, RoutedEventArgs e)
         {
+            // NE ASIGURAM CA ESTE DAT UN USERNAME SI UN TIP DE TEREN
+
+            //var username = usernameTextBox.Text;
+            //var tipTeren = terrainComboBox.SelectedItem;
+
+            //if(username =="" || tipTeren == null)
+            //{
+            //    MessageBox.Show("Please complete all the fields! ");
+            //    return;
+            //}
+
             TcpListener server = null;
             try
             {
-                Int32 port = Convert.ToInt32(portTextBox.Text);
+                Int32 port = Convert.ToInt32(gamePort);
                 string MyIP = "";
                 IPHostEntry Host = default(IPHostEntry);
                 string Hostname = null;
@@ -80,11 +94,12 @@ namespace WorldBattle
                 {
                     if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                     {
-                         MyIP = Convert.ToString(IP);
+                        MyIP = Convert.ToString(IP);
                     }
                 }
                 IPAddress localAddr = IPAddress.Parse(MyIP);
 
+                MessageBox.Show("This is the game ip: " + localAddr);
 
                 server = new TcpListener(localAddr, port);
                 server.Start();
@@ -106,7 +121,7 @@ namespace WorldBattle
                     this.Hide();
                     GameUI game = new GameUI(stream, "First");
                     game.ShowDialog();
-                    
+
                     SendDisconnectMessage();
                 }
                 else
@@ -127,79 +142,12 @@ namespace WorldBattle
             }
         }
 
-        private void guestButton_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                // Create a TcpClient
-                string ip = ipTextBox.Text;
-                if(ip == "127.0.0.1")
-                {
-                    string MyIP = "";
-                    IPHostEntry Host = default(IPHostEntry);
-                    string Hostname = null;
-                    Hostname = System.Environment.MachineName;
-                    Host = Dns.GetHostEntry(Hostname);
-                    foreach (IPAddress IP in Host.AddressList)
-                    {
-                        if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-                        {
-                            MyIP = Convert.ToString(IP);
-                        }
-                    }
-                    IPAddress localAddr = IPAddress.Parse(MyIP);
-                    ip = localAddr.ToString();
-                }
-                Int32 port = Convert.ToInt32(portTextBox.Text);
-                TcpClient client = new TcpClient(ip, port);
-
-                infoLabel.Content = "Connecting to host...";
-
-                // Get a client stream for reading and writing.
-                this.stream = client.GetStream();
-
-                WriteMessage("1.0");
-
-                String data = ReadMessage();
-
-                if (data == "Connected")
-                {
-                    infoLabel.Content = "Connected!";
-                    this.Hide();
-                    GameUI game = new GameUI(stream, "Second");
-                    game.ShowDialog();
-                }
-                else
-                {
-                    if (data == "Invalid version")
-                    {
-                        infoLabel.Content = "Wrong version!";
-                    }
-                    else
-                    {
-                        infoLabel.Content = data;
-                    }
-                    stream.Close();
-                }
-
-                this.Show();
-
-                SendDisconnectMessage();
-
-                // Close everything
-                client.Close();
-            }
-            catch (ArgumentNullException err)
-            {
-                infoLabel.Content = "ArgumentNullException: " + err;
-            }
-            catch (SocketException err)
-            {
-                infoLabel.Content = "Could not connect to host";
-            }
+            Startup startup = new Startup();
+            startup.Show();
+            this.Close();
         }
-
-
-        
     }
 }
+
