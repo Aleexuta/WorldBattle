@@ -71,7 +71,19 @@ namespace WorldBattle
             try
             {
                 Int32 port = Convert.ToInt32(portTextBox.Text);
-                IPAddress localAddr = IPAddress.Parse("127.0.0.1");
+                string MyIP = "";
+                IPHostEntry Host = default(IPHostEntry);
+                string Hostname = null;
+                Hostname = System.Environment.MachineName;
+                Host = Dns.GetHostEntry(Hostname);
+                foreach (IPAddress IP in Host.AddressList)
+                {
+                    if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                    {
+                         MyIP = Convert.ToString(IP);
+                    }
+                }
+                IPAddress localAddr = IPAddress.Parse(MyIP);
 
                 server = new TcpListener(localAddr, port);
                 server.Start();
@@ -120,6 +132,23 @@ namespace WorldBattle
             {
                 // Create a TcpClient
                 string ip = ipTextBox.Text;
+                if(ip == "127.0.0.1")
+                {
+                    string MyIP = "";
+                    IPHostEntry Host = default(IPHostEntry);
+                    string Hostname = null;
+                    Hostname = System.Environment.MachineName;
+                    Host = Dns.GetHostEntry(Hostname);
+                    foreach (IPAddress IP in Host.AddressList)
+                    {
+                        if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                        {
+                            MyIP = Convert.ToString(IP);
+                        }
+                    }
+                    IPAddress localAddr = IPAddress.Parse(MyIP);
+                    ip = localAddr.ToString();
+                }
                 Int32 port = Convert.ToInt32(portTextBox.Text);
                 TcpClient client = new TcpClient(ip, port);
 
