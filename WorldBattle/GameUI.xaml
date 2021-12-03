@@ -8,7 +8,7 @@
         Title="GameUI" MinHeight="600" MinWidth="1000" 
         MaxHeight="640" MaxWidth="1050" 
         d:DesignWidth="1050" d:DesignHeight="640" >
-    <Grid MaxHeight="850" MaxWidth="1400" Margin="0,0,4,-5" >
+    <Grid x:Name="GameGrid" MaxHeight="850" MaxWidth="1400" Margin="0,0,4,-5" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>

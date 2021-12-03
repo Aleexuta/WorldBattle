@@ -67,139 +67,139 @@ namespace WorldBattle
 
         private void HostButton_Click(object sender, RoutedEventArgs e)
         {
-            TcpListener server = null;
-            try
-            {
-                Int32 port = Convert.ToInt32(portTextBox.Text);
-                string MyIP = "";
-                IPHostEntry Host = default(IPHostEntry);
-                string Hostname = null;
-                Hostname = System.Environment.MachineName;
-                Host = Dns.GetHostEntry(Hostname);
-                foreach (IPAddress IP in Host.AddressList)
-                {
-                    if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-                    {
-                         MyIP = Convert.ToString(IP);
-                    }
-                }
-                IPAddress localAddr = IPAddress.Parse(MyIP);
+            //TcpListener server = null;
+            //try
+            //{
+            //    Int32 port = Convert.ToInt32(portTextBox.Text);
+            //    string MyIP = "";
+            //    IPHostEntry Host = default(IPHostEntry);
+            //    string Hostname = null;
+            //    Hostname = System.Environment.MachineName;
+            //    Host = Dns.GetHostEntry(Hostname);
+            //    foreach (IPAddress IP in Host.AddressList)
+            //    {
+            //        if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+            //        {
+            //            MyIP = Convert.ToString(IP);
+            //        }
+            //    }
+            //    IPAddress localAddr = IPAddress.Parse(MyIP);
 
 
-                server = new TcpListener(localAddr, port);
-                server.Start();
+            //    server = new TcpListener(localAddr, port);
+            //    server.Start();
 
-                infoLabel.Content = "Waiting for connection...";
+            //    infoLabel.Content = "Waiting for connection...";
 
-                TcpClient client = server.AcceptTcpClient();
-                infoLabel.Content = "Connected!";
+            //    TcpClient client = server.AcceptTcpClient();
+            //    infoLabel.Content = "Connected!";
 
-                // Get a stream object for reading and writing
-                this.stream = client.GetStream();
+            //    // Get a stream object for reading and writing
+            //    this.stream = client.GetStream();
 
-                String data = ReadMessage();
+            //    String data = ReadMessage();
 
-                if (data == this.version)
-                {
-                    WriteMessage("Connected");
+            //    if (data == this.version)
+            //    {
+            //        WriteMessage("Connected");
 
-                    this.Hide();
-                    GameUI game = new GameUI(stream, "First");
-                    game.ShowDialog();
-                    
-                    SendDisconnectMessage();
-                }
-                else
-                {
-                    WriteMessage("Invalid version");
-                }
+            //        this.Hide();
+            //        GameUI game = new GameUI(stream, "First");
+            //        game.ShowDialog();
 
-                this.Show();
-            }
-            catch (SocketException err)
-            {
-                infoLabel.Content = "SocketException: " + err;
-            }
-            finally
-            {
-                // Stop listening for new clients
-                server.Stop();
-            }
+            //        SendDisconnectMessage();
+            //    }
+            //    else
+            //    {
+            //        WriteMessage("Invalid version");
+            //    }
+
+            //    this.Show();
+            //}
+            //catch (SocketException err)
+            //{
+            //    infoLabel.Content = "SocketException: " + err;
+            //}
+            //finally
+            //{
+            //    // Stop listening for new clients
+            //    server.Stop();
+            //}
         }
 
         private void guestButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                // Create a TcpClient
-                string ip = ipTextBox.Text;
-                if(ip == "127.0.0.1")
-                {
-                    string MyIP = "";
-                    IPHostEntry Host = default(IPHostEntry);
-                    string Hostname = null;
-                    Hostname = System.Environment.MachineName;
-                    Host = Dns.GetHostEntry(Hostname);
-                    foreach (IPAddress IP in Host.AddressList)
-                    {
-                        if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-                        {
-                            MyIP = Convert.ToString(IP);
-                        }
-                    }
-                    IPAddress localAddr = IPAddress.Parse(MyIP);
-                    ip = localAddr.ToString();
-                }
-                Int32 port = Convert.ToInt32(portTextBox.Text);
-                TcpClient client = new TcpClient(ip, port);
+            //try
+            //{
+            //    // Create a TcpClient
+            //    string ip = ipTextBox.Text;
+            //    if (ip == "127.0.0.1")
+            //    {
+            //        string MyIP = "";
+            //        IPHostEntry Host = default(IPHostEntry);
+            //        string Hostname = null;
+            //        Hostname = System.Environment.MachineName;
+            //        Host = Dns.GetHostEntry(Hostname);
+            //        foreach (IPAddress IP in Host.AddressList)
+            //        {
+            //            if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+            //            {
+            //                MyIP = Convert.ToString(IP);
+            //            }
+            //        }
+            //        IPAddress localAddr = IPAddress.Parse(MyIP);
+            //        ip = localAddr.ToString();
+            //    }
+            //    Int32 port = Convert.ToInt32(portTextBox.Text);
+            //    TcpClient client = new TcpClient(ip, port);
 
-                infoLabel.Content = "Connecting to host...";
+            //    infoLabel.Content = "Connecting to host...";
 
-                // Get a client stream for reading and writing.
-                this.stream = client.GetStream();
+            //    // Get a client stream for reading and writing.
+            //    this.stream = client.GetStream();
 
-                WriteMessage("1.0");
+            //    WriteMessage("1.0");
 
-                String data = ReadMessage();
+            //    String data = ReadMessage();
 
-                if (data == "Connected")
-                {
-                    infoLabel.Content = "Connected!";
-                    this.Hide();
-                    GameUI game = new GameUI(stream, "Second");
-                    game.ShowDialog();
-                }
-                else
-                {
-                    if (data == "Invalid version")
-                    {
-                        infoLabel.Content = "Wrong version!";
-                    }
-                    else
-                    {
-                        infoLabel.Content = data;
-                    }
-                    stream.Close();
-                }
+            //    if (data == "Connected")
+            //    {
+            //        infoLabel.Content = "Connected!";
+            //        this.Hide();
+            //        GameUI game = new GameUI(stream, "Second");
+            //        game.ShowDialog();
+            //    }
+            //    else
+            //    {
+            //        if (data == "Invalid version")
+            //        {
+            //            infoLabel.Content = "Wrong version!";
+            //        }
+            //        else
+            //        {
+            //            infoLabel.Content = data;
+            //        }
+            //        stream.Close();
+            //    }
 
-                this.Show();
+            //    this.Show();
 
-                SendDisconnectMessage();
+            //    SendDisconnectMessage();
 
-                // Close everything
-                client.Close();
-            }
-            catch (ArgumentNullException err)
-            {
-                infoLabel.Content = "ArgumentNullException: " + err;
-            }
-            catch (SocketException err)
-            {
-                infoLabel.Content = "Could not connect to host";
-            }
+            //    // Close everything
+            //    client.Close();
+            //}
+            //catch (ArgumentNullException err)
+            //{
+            //    infoLabel.Content = "ArgumentNullException: " + err;
+            //}
+            //catch (SocketException err)
+            //{
+            //    infoLabel.Content = "Could not connect to host";
+            //}
         }
 
 
-        
+
     }
 }

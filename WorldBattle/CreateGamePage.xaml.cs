@@ -27,9 +27,12 @@ namespace WorldBattle
         public CreateGamePage()
         {
             InitializeComponent();
+            terrainComboBox.Items.Insert(0, "--Select--");
             terrainComboBox.Items.Add("Apa");
             terrainComboBox.Items.Add("Ploaie");
             terrainComboBox.Items.Add("Bataie");
+            terrainComboBox.SelectedIndex = 0;
+            
         }
         /*
         * Reads message sent through the network stream
@@ -70,16 +73,16 @@ namespace WorldBattle
 
         private void CreateGameButton_Click(object sender, RoutedEventArgs e)
         {
-            // NE ASIGURAM CA ESTE DAT UN USERNAME SI UN TIP DE TEREN
+            //NE ASIGURAM CA ESTE DAT UN USERNAME SI UN TIP DE TEREN
 
-            //var username = usernameTextBox.Text;
-            //var tipTeren = terrainComboBox.SelectedItem;
+            var username = usernameTextBox.Text;
+            var tipTeren = terrainComboBox.SelectedItem;
 
-            //if(username =="" || tipTeren == null)
-            //{
-            //    MessageBox.Show("Please complete all the fields! ");
-            //    return;
-            //}
+            if (username == "" || tipTeren == "--Select--")
+            {
+                MessageBox.Show("Please complete all the fields! ");
+                return;
+            }
 
             TcpListener server = null;
             try
@@ -116,10 +119,10 @@ namespace WorldBattle
 
                 if (data == this.version)
                 {
-                    WriteMessage("Connected");
+                    WriteMessage("Connected," + tipTeren.ToString());
 
                     this.Hide();
-                    GameUI game = new GameUI(stream, "First");
+                    GameUI game = new GameUI(stream, "First", username, tipTeren.ToString());
                     game.ShowDialog();
 
                     SendDisconnectMessage();

@@ -40,14 +40,30 @@ namespace WorldBattle
         private int NrNimeriri = 0;
         private int NrOcupate = 0;
 
+        private string tipTeren;
+        private string username;
+
 
         ImagePos[] images = new ImagePos[4];
-        public GameUI(NetworkStream stream, String player)
+        public GameUI(NetworkStream stream, String player, String username, String tipTeren)
         {
             InitializeComponent();
             //TODO
+
+            this.tipTeren = tipTeren;
+            this.username = username;
+
+            //if(tipTeren == "")  //urmeaza cazurile
+            //{
+            //    var uri = new Uri("url poza");
+            //    var bitmap = new BitmapImage(uri);
+            //    GameGrid.Background = new ImageBrush(bitmap);
+            //}
+
+
             //mai intai face butoanele tuturor
             //seteaza butoanele adversarului pe disable
+
             GenerateOpponentButtonArray();
             GenerateMyTableButtonArray();
             GeneratePhotos();

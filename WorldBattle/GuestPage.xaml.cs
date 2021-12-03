@@ -68,14 +68,14 @@ namespace WorldBattle
         private void JoinGameButton_Click(object sender, RoutedEventArgs e)
         {
 
-            //var username = usernameTextBox.Text;
+            var username = usernameTextBox.Text;
             string ip = ipTextBox.Text;
-
-            //if (username == "" || ip == "")
-            //{
-            //    MessageBox.Show("Please fill all the gaps!");
-            //    return;
-            //}
+            string tipTeren;
+            if (username == "" || ip == "")
+            {
+                MessageBox.Show("Please fill all the gaps!");
+                return;
+            }
 
             try
             {
@@ -107,13 +107,18 @@ namespace WorldBattle
 
                 WriteMessage("1.0");
 
-                String data = ReadMessage();
+                String receivedData = ReadMessage();
+
+                String[] words = receivedData.Split(',');
+                String data = words[0];
+                tipTeren = words[1];
+
 
                 if (data == "Connected")
                 {
                     infoLabel.Content = "Connected!";
                     this.Hide();
-                    GameUI game = new GameUI(stream, "Second");
+                    GameUI game = new GameUI(stream, "Second", username, tipTeren);
                     game.ShowDialog();
                 }
                 else
