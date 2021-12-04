@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldBattle"
         mc:Ignorable="d"
-         Title="WorldBattle" Height="450" Width="800">
+         Title="WorldBattle" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="WorldBattle" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="292,22,282,338" FontFamily="Times New Roman" FontSize="40" Width="220" />
         <Button x:Name="joinGameButton" Content="Join Game" HorizontalAlignment="Left" Margin="328,268,0,0" VerticalAlignment="Top" Width="120" Click="JoinGameButton_Click"/>

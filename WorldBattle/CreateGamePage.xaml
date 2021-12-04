@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldBattle"
         mc:Ignorable="d"
-       Title="WorldBattle" Height="450" Width="800">
+       Title="WorldBattle" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="WorldBattle" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="292,22,282,338" FontFamily="Times New Roman" FontSize="40" Width="220" />
         <Button x:Name="createGameButton" Content="Create Game" HorizontalAlignment="Left" Margin="328,268,0,0" VerticalAlignment="Top" Width="120" Click="CreateGameButton_Click"/>
-        <Label x:Name="infoLabel" Content="" HorizontalAlignment="Left" Margin="117,347,0,0" VerticalAlignment="Top" Width="293"/>
         <ComboBox x:Name="terrainComboBox" HorizontalAlignment="Left" Margin="328,180,0,0" VerticalAlignment="Top" Width="120" />
         <Label Content="Teren" HorizontalAlignment="Left" Margin="258,180,0,0" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.742,1.108"/>
         <TextBox x:Name="usernameTextBox" HorizontalAlignment="Left" Height="23" Margin="328,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="258,130,0,0" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.742,1.108"/>
         <Button Content="Back" HorizontalAlignment="Left" Margin="668,347,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label x:Name="infoLabel" Content="" Foreground="Black" HorizontalAlignment="Left" Margin="117,347,0,0" VerticalAlignment="Top" Width="293"/>
 
 
     </Grid>

@@ -102,12 +102,12 @@ namespace WorldBattle
                 }
                 IPAddress localAddr = IPAddress.Parse(MyIP);
 
-                MessageBox.Show("This is the game ip: " + localAddr);
-
+                MessageBox.Show("This is the game ip: " + localAddr + "\n Press ok to start the server!");
+                MessageBox.Show("Waiting for opponent!");
+                
                 server = new TcpListener(localAddr, port);
                 server.Start();
-
-                infoLabel.Content = "Waiting for connection...";
+  
 
                 TcpClient client = server.AcceptTcpClient();
                 infoLabel.Content = "Connected!";
