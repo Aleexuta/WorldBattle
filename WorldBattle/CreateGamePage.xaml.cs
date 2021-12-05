@@ -28,8 +28,8 @@ namespace WorldBattle
         {
             InitializeComponent();
             terrainComboBox.Items.Insert(0, "--Select--");
-            terrainComboBox.Items.Add("Apa");
-            terrainComboBox.Items.Add("Ploaie");
+            terrainComboBox.Items.Add("Naval");
+            terrainComboBox.Items.Add("Terestru");
             terrainComboBox.Items.Add("Bataie");
             terrainComboBox.SelectedIndex = 0;
             
