@@ -30,7 +30,7 @@ namespace WorldBattle
             terrainComboBox.Items.Insert(0, "--Select--");
             terrainComboBox.Items.Add("Naval");
             terrainComboBox.Items.Add("Terestru");
-            terrainComboBox.Items.Add("Bataie");
+            terrainComboBox.Items.Add("Aviatie");
             terrainComboBox.SelectedIndex = 0;
             
         }

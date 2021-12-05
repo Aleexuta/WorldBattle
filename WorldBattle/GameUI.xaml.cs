@@ -535,11 +535,7 @@ namespace WorldBattle
                 //poza 2
                 createPhoto(3, "Poze\\trupe2.png", poza4, 2, 3, "Trupe4", 0, 2, 1, 0, 4);
             }
-        }
-            //poza1
-
-
-          //  if(tipTeren=="Aviatie")
+            if(tipTeren=="Aviatie")
             {
                 createPhoto(0, "Poze\\avion1.png", poza1, 4, 5, "Avion1", 1.5, 1.5, 1.5, 2.5, 10);
                 createPhoto(1, "Poze\\avion2.png", poza2, 2, 3, "Avion2", 0, 1, 1, 1, 4);
