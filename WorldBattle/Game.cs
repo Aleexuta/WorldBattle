@@ -54,6 +54,13 @@ namespace WorldBattle
             }
             PrepareMyTable();
         }
+        public void disableButtonsMyTable()
+        {
+            for (int i = 0; i < DIM * DIM; i++)
+            {
+                this.MyBoardBullets[i] = TypesBoard.UntestedEmpty;
+            }
+        }
         static public Game getInstance(String player)
         {
             if (instance == null)
@@ -78,7 +85,9 @@ namespace WorldBattle
         {
             if (MyBoardBullets[nrbut] == TypesBoard.UntestedFull && type==TypesBoard.UntestedFull)
                 throw new Exception("Ocupata");
-            MyBoardBullets[nrbut] = type;
+
+            else
+                MyBoardBullets[nrbut] = type;
         }
         public void setTypeYourTable(int nrbut, TypesBoard type)
         {

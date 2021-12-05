@@ -129,7 +129,6 @@
   <ItemGroup>
     <Resource Include="Poze\avion2.png" />
     <Resource Include="Poze\avion3.png" />
-    <Resource Include="Poze\avion4.png" />
     <Resource Include="Poze\avion5.png" />
     <Resource Include="Poze\barca2.png" />
     <Resource Include="Poze\barca3.png" />
@@ -140,6 +139,9 @@
     <Resource Include="Poze\tanc4.png" />
     <Resource Include="Poze\tanc5.png" />
     <Resource Include="Poze\tank3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\avion4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

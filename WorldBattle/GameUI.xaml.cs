@@ -27,7 +27,7 @@ namespace WorldBattle
 
     public partial class GameUI : Window
     {
-        int NRPOZE = 2;
+        int NRPOZE = 4;
         int SIZEBUTTONS = 40;   
         private NetworkStream stream;
         private Game game;
@@ -516,11 +516,14 @@ namespace WorldBattle
             //poza1
 
 
-            createPhoto(0, "Poze\\barca1.png", poza1, 4, 1, "Barca1", 0, 0, 3, 0, 4);
-            //poza 2
+          //  if(tipTeren=="Aviatie")
+            {
+                createPhoto(0, "Poze\\avion1.png", poza1, 4, 5, "Avion1", 1.5, 1.5, 1.5, 2.5, 10);
+                createPhoto(1, "Poze\\avion2.png", poza2, 2, 3, "Avion2", 0, 1, 1, 1, 4);
+                createPhoto(2, "Poze\\avion5.png", poza3, 1, 1, "Avion3", 0, 0, 0, 0, 1);
+                createPhoto(3, "Poze\\avion4.png", poza4, 3, 2, "Avion4", 1.5, 0.5, 0.5, 0.5, 4);
 
-
-            createPhoto(1, "Poze\\avion1.png", poza2, 4, 5,"Avion1" ,1.5, 1.5, 1.5, 2.5, 10);
+            }
         }
 
         private void rotateImage(int i)
@@ -588,7 +591,7 @@ namespace WorldBattle
             selectedimage.m_fullleft = left - imgleft;
             selectedimage.getImg().Width = 0;
             selectedimage.getImg().Height = 0;
-            selectedimage.getImg().Source = null;
+           // selectedimage.getImg().Source = null;
             selectedimage = null;
             //adauga in tabela din game
             NrElementePlasate++;
@@ -637,7 +640,25 @@ namespace WorldBattle
                 return "..\\..\\Poze\\avion1.png";
             if (id == "Barca1")
                 return "..\\..\\Poze\\barca1.png";
+            if (id == "Avion2")
+                return "..\\..\\Poze\\avion2.png";
+            if (id == "Avion3")
+                return "..\\..\\Poze\\avion5.png";
+            if (id == "Avion4")
+                return "..\\..\\Poze\\avion4.png";
             return "";
+        }
+
+        private void undoButton_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < NRPOZE; i++)
+            {
+                images[i].getImg().Height = images[i].m_heightinit*SIZEBUTTONS;
+                images[i].getImg().Width = images[i].m_widthinit*SIZEBUTTONS;
+            }
+            fundal.Children.Clear();
+            disable_enableButtons(mytableButtons, true);
+            game.disableButtonsMyTable();
         }
         //restul butoanelor
     }
