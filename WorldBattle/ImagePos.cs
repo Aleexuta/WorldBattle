@@ -127,7 +127,7 @@ namespace WorldBattle
             {
                 if (m_rot == 0)
                 {
-                    if (x - 1 > 0 || x - 2 > 7 || y - 2 < 0 || y + 2 > 7)
+                    if (x - 1 > 0 || x + 2 > 7 || y - 2 < 0 || y + 2 > 7)
                         return false;
                     game.setTypeMyTable(pos, TypesBoard.UntestedFull);
                     game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
