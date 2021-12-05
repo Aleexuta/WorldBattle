@@ -27,7 +27,7 @@ namespace WorldBattle
 
     public partial class GameUI : Window
     {
-        int NRPOZE = 2;
+        int NRPOZE = 4;
         int SIZEBUTTONS = 40;   
         private NetworkStream stream;
         private Game game;
@@ -513,14 +513,28 @@ namespace WorldBattle
         }
         private void GeneratePhotos()
         {
-            //poza1
-
-
-            createPhoto(0, "Poze\\barca1.png", poza1, 4, 1, "Barca1", 0, 0, 3, 0, 4);
-            //poza 2
-
-
-            createPhoto(1, "Poze\\avion1.png", poza2, 4, 5,"Avion1" ,1.5, 1.5, 1.5, 2.5, 10);
+            if (tipTeren == "Naval")
+            {
+                //poza1
+                createPhoto(0, "Poze\\barca1.png", poza1, 4, 1, "Barca1", 0, 0, 3, 0, 4);
+                //poza 2
+                createPhoto(1, "Poze\\barca2.png", poza2, 2, 2, "Barca2", 1, 1, 0, 0, 3);
+                //poze 3
+                createPhoto(2, "Poze\\barca5.png", poza3, 3, 3, "Barca5", 0, 1, 2, 1, 5);
+                //poza 2
+                createPhoto(3, "Poze\\barca2.png", poza4, 2, 2, "Barca3", 1, 1, 0, 0, 3);
+            }
+            if(tipTeren == "Terestru")
+            {
+                //poza1
+                createPhoto(0, "Poze\\tanc1.png", poza1, 2, 1, "Tanc1", 0, 0, 1, 0, 2);
+                //poza 2
+                createPhoto(1, "Poze\\tank3.png", poza2, 3, 1, "Tanc2", 2, 0, 0, 0, 3);
+                //poze 3
+                createPhoto(2, "Poze\\trupe1.png", poza3, 2, 2, "Trupe3", 0, 1, 1, 0, 3);
+                //poza 2
+                createPhoto(3, "Poze\\trupe2.png", poza4, 2, 3, "Trupe4", 0, 2, 1, 0, 4);
+            }
         }
 
         private void rotateImage(int i)
@@ -637,6 +651,20 @@ namespace WorldBattle
                 return "..\\..\\Poze\\avion1.png";
             if (id == "Barca1")
                 return "..\\..\\Poze\\barca1.png";
+            if (id == "Barca2")
+                return "..\\..\\Poze\\barca2.png";
+            if (id == "Barca3")
+                return "..\\..\\Poze\\barca2.png";
+            if (id == "Barca5")
+                return "..\\..\\Poze\\barca5.png";
+            if (id == "Tanc1")
+                return "..\\..\\Poze\\tanc1.png";
+            if (id == "Tanc2")
+                return "..\\..\\Poze\\tank3.png";
+            if (id == "Trupe3")
+                return "..\\..\\Poze\\trupe1.png";
+            if (id == "Trupe4")
+                return "..\\..\\Poze\\trupe2.png";
             return "";
         }
         //restul butoanelor

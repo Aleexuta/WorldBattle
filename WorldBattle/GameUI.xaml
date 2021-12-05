@@ -44,14 +44,16 @@
                 <Image x:Name="poza1" HorizontalAlignment="Left" VerticalAlignment="Top"
                    Source="/Poze/barca1.png" Height="41" Width="159" Margin="82,39,0,0"  />
                 <Image x:Name="poza2" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                   Source="/Poze/avion1.png" Height="124" Width="158" Margin="110,122,0,0"  />
+                   Source="/Poze/barca2.png" Height="121" Width="131" Margin="110,125,0,0"  />
                 <Image x:Name="poza3" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                   Source="/Poze/avion1.png" Height="124" Width="158" Margin="10,280,0,0"  />
+                   Source="/Poze/barca5.png" Height="124" Width="158" Margin="10,280,0,0"  />
+                <Image x:Name="poza4" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Source="/Poze/barca2.png" Height="106" Width="165" Margin="93,342,0,0"  />
 
 
                 <TextBlock x:Name="Infolabel" Text=" " Grid.Row="0" HorizontalAlignment="Center"  
-            Margin="10,347,10,-91" TextWrapping="Wrap" 
-            VerticalAlignment="Center" Height="171" Width="258" 
+            Margin="409,14,-362,392" TextWrapping="Wrap" 
+            VerticalAlignment="Center" Height="66" Width="231" 
             FontSize="25" TextAlignment="Center" />
 
             </Grid>

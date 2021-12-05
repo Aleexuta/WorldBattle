@@ -83,30 +83,39 @@ namespace WorldBattle
                     break;
             
                 case "Barca2":
-            
+                    return disableIdBarca2(x, y);
 
                     break;
-            
                 case "Barca3":
-            
+                    return disableIdBarca2(x, y);
+
+                    break;
+
+                case "Barca5":
+                    return disableIdBarca5(x, y);
 
                     break;
             
                 case "Tanc1":
-            
+                    return disableIdTanc1(x, y);
 
                     break;
             
                 case "Tanc2":
-            
+                    return disableIdTanc2(x, y);
 
                     break;
             
-                case "Tanc3":
-            
+                case "Trupe3":
+                    return disableIdTrupe3(x, y);
 
                     break;
-            
+
+                case "Trupe4":
+                    return disableIdTrupe4(x, y);
+
+                    break;
+
                 default:
                     break;
             }
@@ -310,12 +319,397 @@ namespace WorldBattle
             return true;
         }
 
+        private bool disableIdBarca2(int x, int y)
+        {
+            int pos = y * 8 + x;
+            Game game = Game.getInstance();
+            try
+            {
+                if (m_rot == 0)
+                {
+                    if (x - 1 < 0 || x > 7 || y - 1 < 0 || y > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 8 , TypesBoard.UntestedFull);
 
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 1);
+                    setButtonsNumbers(pos - 8);
 
+                }
+                else if (m_rot == 90)
+                {
+                    if (x < 0 || x + 1 > 7 || y - 1 < 0 || y > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
 
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 8);
+                    setButtonsNumbers(pos + 1);
+                }
+                else if (m_rot == 180)
+                {
+                    if (x < 0 || x + 1 > 7 || y < 0 || y + 1 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
 
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos + 1);
+                    setButtonsNumbers(pos + 8);
+                }
+                else
+                {
+                    if (x - 1 < 0 ||  x > 7 || y < 0 || y + 1 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
 
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 1);
+                    setButtonsNumbers(pos + 8);
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
 
+        private bool disableIdBarca5(int x, int y)
+        {
+            int pos = y * 8 + x;
+            Game game = Game.getInstance();
+            try
+            {
+                if (m_rot == 0)
+                {
+                    if (x  < 0 || x + 2 > 7 || y - 1 < 0 || y + 1 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 8);
+                    setButtonsNumbers(pos + 8);
+                    setButtonsNumbers(pos + 1);
+                    setButtonsNumbers(pos + 2);
+
+                }
+                else if (m_rot == 90)
+                {
+                    if (x - 1 < 0 || x + 1 > 7 || y < 0 || y + 2 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 1);
+                    setButtonsNumbers(pos + 1);
+                    setButtonsNumbers(pos + 8);
+                    setButtonsNumbers(pos + 16);
+                }
+                else if (m_rot == 180)
+                {
+                    if (x - 2 < 0 || x  > 7 || y - 1 < 0 || y + 1 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 1);
+                    setButtonsNumbers(pos - 2);
+                    setButtonsNumbers(pos + 8);
+                    setButtonsNumbers(pos - 8);
+                }
+                else
+                {
+                    if (x - 1 < 0 || x + 1 > 7 || y - 2 < 0 || y > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 1);
+                    setButtonsNumbers(pos + 1);
+                    setButtonsNumbers(pos - 8);
+                    setButtonsNumbers(pos - 16);
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool disableIdTanc1(int x, int y)
+        {
+            int pos = y * 8 + x;
+            Game game = Game.getInstance();
+            try
+            {
+                if (m_rot == 0)
+                {
+                    if (x < 0 || x + 1 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos + 1);
+
+                }
+                else if (m_rot == 90)
+                {
+                    if (y < 0 || y + 1 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos + 8);
+                }
+                else if (m_rot == 180)
+                {
+                    if (x - 1 < 0 || x > 7 )
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 1);
+                }
+                else
+                {
+                    if (y - 1 < 0 || y > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 8);
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool disableIdTanc2(int x, int y)
+        {
+            int pos = y * 8 + x;
+            Game game = Game.getInstance();
+            try
+            {
+                if (m_rot == 0)
+                {
+                    if (x - 2 < 0 || x > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 1);
+                    setButtonsNumbers(pos - 2);
+
+                }
+                else if (m_rot == 90)
+                {
+                    if (y - 2 < 0 || y > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 16);
+                    setButtonsNumbers(pos - 8);
+                }
+                else if (m_rot == 180)
+                {
+                    if (x < 0 || x + 2 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos + 1);
+                    setButtonsNumbers(pos + 2);
+                }
+                else
+                {
+                    if (y < 0 || y + 2 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos + 8);
+                    setButtonsNumbers(pos + 16);
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool disableIdTrupe3(int x, int y)
+        {
+            int pos = y * 8 + x;
+            Game game = Game.getInstance();
+            try
+            {
+                if (m_rot == 0)
+                {
+                    if (x < 0 || x + 1 > 7 || y - 1 < 0 || y > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos + 1);
+                    setButtonsNumbers(pos - 8);
+                }
+                else if (m_rot == 90)
+                {
+                    if (x < 0 || x + 1 > 7 || y < 0 || y + 1 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos + 1);
+                    setButtonsNumbers(pos + 8);
+                }
+                else if (m_rot == 180)
+                {
+                    if (x - 1 < 0 || x > 7 || y < 0 || y + 1 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 1);
+                    setButtonsNumbers(pos + 8);
+                }
+                else
+                {
+                    if (x - 1 < 0 || x > 7 || y - 1 < 0 || y > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 1);
+                    setButtonsNumbers(pos - 8);
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool disableIdTrupe4(int x, int y)
+        {
+            int pos = y * 8 + x;
+            Game game = Game.getInstance();
+            try
+            {
+                if (m_rot == 0)
+                {
+                    if (x < 0 || x + 1 > 7 || y - 2 < 0 || y > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos + 1);
+                    setButtonsNumbers(pos - 8);
+                    setButtonsNumbers(pos - 16);
+                }
+                else if (m_rot == 90)
+                {
+                    if (x < 0 || x + 2 > 7 || y < 0 || y + 1 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos + 1);
+                    setButtonsNumbers(pos + 2);
+                    setButtonsNumbers(pos + 8);
+                }
+                else if (m_rot == 180)
+                {
+                    if (x - 1 < 0 || x > 7 || y < 0 || y + 2 > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 1);
+                    setButtonsNumbers(pos + 8);
+                    setButtonsNumbers(pos + 16);
+                }
+                else
+                {
+                    if (x - 2 < 0 || x > 7 || y - 1 < 0 || y > 7)
+                        return false;
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
+                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+
+                    setButtonsNumbers(pos);
+                    setButtonsNumbers(pos - 1);
+                    setButtonsNumbers(pos - 2);
+                    setButtonsNumbers(pos - 8);
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
 
         private void calculatePatratele()
         {
@@ -323,9 +717,21 @@ namespace WorldBattle
                 nrParatele = 10;
             if (m_id == "Barca1")
                 nrParatele = 4;
-            
-            
-            
+            if (m_id == "Barca2")
+                nrParatele = 3;
+            if (m_id == "Barca3")
+                nrParatele = 3;
+            if (m_id == "Barca5")
+                nrParatele = 5;
+            if (m_id == "Tanc1")
+                nrParatele = 2;
+            if (m_id == "Tanc2")
+                nrParatele = 2;
+            if (m_id == "Trupe3")
+                nrParatele = 3;
+            if (m_id == "Trupe4")
+                nrParatele = 4;
+
             nrParatele = 0;
         }
 
