@@ -41,7 +41,10 @@ namespace WorldBattle
             listOfNrButtons = new int[nrParatele];
         
         }
-        
+        public void undoPhoto()
+        {
+            posvector = -1;
+        }
         public bool IsPhotoOnButton(int nrbut)
         {
             for (int i = 0; i < nrParatele; i++)

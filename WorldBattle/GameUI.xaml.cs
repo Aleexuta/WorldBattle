@@ -410,6 +410,7 @@ namespace WorldBattle
             game.setMineStateReady(false); //we are done preparing... we are ready for fighT
             disable_enableButtons(mytableButtons, false);
             readyButton.IsEnabled = false;
+            undoButton.IsEnabled = false;
             if (game.isOpponentReady() == true)
             {
                 if (game.isTurn() == true)
@@ -686,8 +687,9 @@ namespace WorldBattle
         {
             for (int i = 0; i < NRPOZE; i++)
             {
-                images[i].getImg().Height = images[i].m_heightinit*SIZEBUTTONS;
-                images[i].getImg().Width = images[i].m_widthinit*SIZEBUTTONS;
+                images[i].getImg().Height = images[i].getHeightByRot()*SIZEBUTTONS;
+                images[i].getImg().Width = images[i].getWidthByRot()*SIZEBUTTONS;
+                images[i].undoPhoto();
             }
             fundal.Children.Clear();
             disable_enableButtons(mytableButtons, true);

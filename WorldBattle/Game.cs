@@ -83,11 +83,12 @@ namespace WorldBattle
         }
         public void setTypeMyTable(int nrbut,TypesBoard type)
         {
-            if (MyBoardBullets[nrbut] == TypesBoard.UntestedFull && type==TypesBoard.UntestedFull)
-                throw new Exception("Ocupata");
+            if(MyBoardBullets[nrbut] == TypesBoard.UntestedFull)
+                if (type == TypesBoard.UntestedFull)
+                    throw new Exception("Ocupata");
 
-            else
-                MyBoardBullets[nrbut] = type;
+            
+            MyBoardBullets[nrbut] = type;
         }
         public void setTypeYourTable(int nrbut, TypesBoard type)
         {
