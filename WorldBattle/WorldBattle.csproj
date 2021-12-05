@@ -76,10 +76,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -89,10 +85,6 @@
       <DependentUpon>GameUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImagePos.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="Startup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +125,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Poze\avion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\avion2.png" />
+    <Resource Include="Poze\avion3.png" />
+    <Resource Include="Poze\avion4.png" />
+    <Resource Include="Poze\avion5.png" />
+    <Resource Include="Poze\barca2.png" />
+    <Resource Include="Poze\barca3.png" />
+    <Resource Include="Poze\barca4.png" />
+    <Resource Include="Poze\barca5.png" />
+    <Resource Include="Poze\tanc1.png" />
+    <Resource Include="Poze\tanc2.png" />
+    <Resource Include="Poze\tanc4.png" />
+    <Resource Include="Poze\tanc5.png" />
+    <Resource Include="Poze\tank3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
