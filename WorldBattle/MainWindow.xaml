@@ -1,0 +1,47 @@
+﻿<Window x:Class="WorldBattle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorldBattle"
+        mc:Ignorable="d"
+        Title="WorldBattle" Height="450" Width="800" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="Poze/bg.jpg"></ImageBrush>
+    </Window.Background>
+
+
+
+    <Grid>
+<<<<<<< Updated upstream
+        <Grid.Background>
+            <ImageBrush ImageSource="bg-lgin.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Label Content="World" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="87,22,485,338" FontFamily="Times New Roman" FontSize="40" Height="60" Width="220" HorizontalAlignment="Center" VerticalAlignment="Top"  />
+        <Label Content="Battle" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="497,22,100,338" FontFamily="Times New Roman" FontSize="40" Width="220" Height="60" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" />
+        <TextBox x:Name="ipTextBox" Height="40" Margin="98,162,484,217" TextWrapping="Wrap" Text="Ip" Width="210" VerticalAlignment="Top" MaxWidth="100000" MaxHeight="100000" HorizontalScrollBarVisibility="Auto" FontStyle="Italic" FontFamily="Yu Gothic UI Semilight" FontSize="16" Opacity="0.5" BorderThickness="1" SelectionOpacity="0.8" IsHitTestVisible="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" />
+        <TextBox x:Name="portTextBox" HorizontalAlignment="Left" Height="36" Margin="132,242,502,141" TextWrapping="Wrap" Text="Port" VerticalAlignment="Top" Width="158" Opacity="0.7" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Yu Gothic" FontSize="16" />
+        <Button x:Name="hostButton" Content="Host" HorizontalAlignment="Left" Margin="98,318,599,72" VerticalAlignment="Top" Width="95" Click="HostButton_Click" Height="29" Opacity="0.7" FontFamily="Yu Gothic"/>
+        <Button x:Name="guestButton" Content="Join" HorizontalAlignment="Left" Margin="216,318,468,72" VerticalAlignment="Top" Width="108" Click="guestButton_Click" Height="29" Opacity="0.7"/>
+        <ComboBox x:Name="TipTerenComboBox1" Margin="507,162,120,200" Width="210" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Yu Gothic" FontSize="16" FontStyle="Italic" Opacity="0.7" MaxDropDownHeight="700" HorizontalAlignment="Right" VerticalAlignment="Top" >
+=======
+        <Label Content="World" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="134,22,440,338" FontFamily="Times New Roman" FontSize="40" Width="220" />
+        <Label Content="Battle" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="409,22,165,338" FontFamily="Times New Roman" FontSize="40" Width="220" />
+        <TextBox x:Name="ipTextBox" HorizontalAlignment="Left" Height="24" Margin="117,153,0,0" TextWrapping="Wrap" Opacity="0.75" Text="127.0.0.1" VerticalAlignment="Top" Width="199" />
+        <TextBox x:Name="portTextBox" HorizontalAlignment="Left" Height="23" Margin="134,203,0,0" TextWrapping="Wrap" Opacity="0.75" Text="3000" VerticalAlignment="Top" Width="161" />
+        <Button x:Name="hostButton" Content="Host" HorizontalAlignment="Left" Margin="107,288,0,0" VerticalAlignment="Top" Opacity="0.75" Width="101" Click="HostButton_Click" Height="41"/>
+        <Button x:Name="guestButton" Content="Join" HorizontalAlignment="Left" Margin="241,288,0,0" VerticalAlignment="Top" Opacity="0.75" Width="113" Click="guestButton_Click" Height="41"/>
+        <ComboBox HorizontalAlignment="Left" Margin="567,140,0,0" Opacity="0,75" VerticalAlignment="Top" Width="141" Height="26" >
+>>>>>>> Stashed changes
+            <ComboBoxItem Content="Tip teren" IsSelected="True"></ComboBoxItem>
+            <ComboBoxItem Content="Pamant"></ComboBoxItem>
+            <ComboBoxItem Content="Apa"></ComboBoxItem>
+            <ComboBoxItem Content="Aer"></ComboBoxItem>
+        </ComboBox>
+        <Label x:Name="infoLabel" Content="" HorizontalAlignment="Left" Margin="87,365,0,0" VerticalAlignment="Top" Width="293"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="0" Margin="535,202,0,0" VerticalAlignment="Top" Width="1"/>
+
+
+    </Grid>
+</Window>
