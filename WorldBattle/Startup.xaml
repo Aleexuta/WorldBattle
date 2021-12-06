@@ -65,7 +65,8 @@
         </Style>
     </Window.Resources>
     <Window.Background>
-        <ImageBrush ImageSource="/Poze/bg_combat.jpg"/>
+        <ImageBrush ImageSource="/Poze/bg_combat.jpg" />
+
     </Window.Background>
     <Grid>
 
