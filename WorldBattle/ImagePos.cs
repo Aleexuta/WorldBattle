@@ -144,16 +144,33 @@ namespace WorldBattle
                 {
                     if (x - 1 > 0 || x + 2 > 7 || y - 2 < 0 || y + 2 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 15, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 17, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 15, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 17, TypesBoard.UntestedFull);
+                    }
+                    catch(Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 15, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 17, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
 
                     setButtonsNumbers(pos);
@@ -171,17 +188,34 @@ namespace WorldBattle
                 {
                     if (x - 2 < 0 || x + 1 > 7 || y - 2 < 0 || y + 2 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 10, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 6, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 10, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 6, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    }
+                    catch(Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 10, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 6, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
+             
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 8);
                     setButtonsNumbers(pos - 16);
@@ -197,17 +231,33 @@ namespace WorldBattle
                 {
                     if (y - 2 < 0 || y + 1 > 7 || x - 2 < 0 || x + 2 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 15, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 17, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
-
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 15, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 17, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch(Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 15, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 17, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 8);
                     setButtonsNumbers(pos - 15);
@@ -223,17 +273,33 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 || x + 2 > 7 || y - 2 < 0 || y + 2 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 6, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 10, TypesBoard.UntestedFull);
-
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 6, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 10, TypesBoard.UntestedFull);
+                    }
+                    catch(Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 6, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 10, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
                     setButtonsNumbers(pos - 8);
@@ -262,11 +328,22 @@ namespace WorldBattle
                 {
                     if (x < 0 || x + 1 > 7 || y - 1 < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos+1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos-8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos+8, TypesBoard.UntestedFull);
-
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch(Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
+                    
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos+1);
                     setButtonsNumbers(pos-8);
@@ -276,10 +353,22 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 || x + 1 > 7 || y < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos-1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos+1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos+8, TypesBoard.UntestedFull);
+
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos-1);
@@ -290,10 +379,22 @@ namespace WorldBattle
                 {
                     if (x-1<0 || x>7 || y-1<0 || y+1 >7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -304,10 +405,22 @@ namespace WorldBattle
                 {
                     if (x-1<0 || x+1 >7 || y-1 < 0 || y> 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -329,7 +442,16 @@ namespace WorldBattle
             {
                 if (x < 0 || x > 7 || y < 0 || y > 7)
                     return false;
-                game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                try
+                {
+                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                }
+                catch (Exception e)
+                {
+                    game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                    throw e;
+                }
+
                 setButtonsNumbers(pos);
             }
             catch (Exception e)
@@ -348,10 +470,21 @@ namespace WorldBattle
                 {
                     if (x-1 < 0 || x> 7 || y - 1 < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -362,10 +495,21 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 || x + 1 > 7 || y-1 < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -376,10 +520,21 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 || x+1 > 7 || y < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos + 1);
@@ -390,10 +545,21 @@ namespace WorldBattle
                 {
                     if (x < 0 || x + 1 > 7 || y - 1 < 0 || y+1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -417,10 +583,21 @@ namespace WorldBattle
                 {
                     if (x < 0 || x + 3 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 3, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 3, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 3, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos +1);
@@ -432,10 +609,21 @@ namespace WorldBattle
                 {
                     if (y < 0 || y + 3 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 24, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 24, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 24, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos + 8);
@@ -446,10 +634,21 @@ namespace WorldBattle
                 {
                     if (x > 7 || x - 3 < 0)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 3, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 3, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 3, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -460,10 +659,21 @@ namespace WorldBattle
                 {
                     if (y > 7 || y - 3 < 0)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 24, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 24, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 24, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos -8);
@@ -488,9 +698,19 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 || x > 7 || y - 1 < 0 || y > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8 , TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -501,9 +721,19 @@ namespace WorldBattle
                 {
                     if (x < 0 || x + 1 > 7 || y - 1 < 0 || y > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 8);
@@ -513,9 +743,19 @@ namespace WorldBattle
                 {
                     if (x < 0 || x + 1 > 7 || y < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos + 1);
@@ -525,9 +765,19 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 ||  x > 7 || y < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -551,11 +801,23 @@ namespace WorldBattle
                 {
                     if (x  < 0 || x + 2 > 7 || y - 1 < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 8);
@@ -568,11 +830,23 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 || x + 1 > 7 || y < 0 || y + 2 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -584,11 +858,23 @@ namespace WorldBattle
                 {
                     if (x - 2 < 0 || x  > 7 || y - 1 < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -600,11 +886,23 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 || x + 1 > 7 || y - 2 < 0 || y > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -630,8 +928,17 @@ namespace WorldBattle
                 {
                     if (x < 0 || x + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos + 1);
@@ -641,8 +948,17 @@ namespace WorldBattle
                 {
                     if (y < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos + 8);
@@ -651,8 +967,17 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 || x > 7 )
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -661,8 +986,17 @@ namespace WorldBattle
                 {
                     if (y - 1 < 0 || y > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 8);
@@ -685,9 +1019,19 @@ namespace WorldBattle
                 {
                     if (x - 2 < 0 || x > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -698,9 +1042,19 @@ namespace WorldBattle
                 {
                     if (y - 2 < 0 || y > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 16);
@@ -710,9 +1064,19 @@ namespace WorldBattle
                 {
                     if (x < 0 || x + 2 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos + 1);
@@ -722,9 +1086,19 @@ namespace WorldBattle
                 {
                     if (y < 0 || y + 2 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos + 8);
@@ -748,9 +1122,19 @@ namespace WorldBattle
                 {
                     if (x < 0 || x + 1 > 7 || y - 1 < 0 || y > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos + 1);
@@ -760,9 +1144,19 @@ namespace WorldBattle
                 {
                     if (x < 0 || x + 1 > 7 || y < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos + 1);
@@ -772,9 +1166,19 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 || x > 7 || y < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -784,9 +1188,19 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 || x > 7 || y - 1 < 0 || y > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -810,10 +1224,21 @@ namespace WorldBattle
                 {
                     if (x < 0 || x + 1 > 7 || y - 2 < 0 || y > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 16, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos + 1);
@@ -824,10 +1249,21 @@ namespace WorldBattle
                 {
                     if (x < 0 || x + 2 > 7 || y < 0 || y + 1 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 2, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos + 1);
@@ -838,10 +1274,21 @@ namespace WorldBattle
                 {
                     if (x - 1 < 0 || x > 7 || y < 0 || y + 2 > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 8, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos + 16, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
@@ -852,10 +1299,21 @@ namespace WorldBattle
                 {
                     if (x - 2 < 0 || x > 7 || y - 1 < 0 || y > 7)
                         return false;
-                    game.setTypeMyTable(pos, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
-                    game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    try
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedFull);
+                    }
+                    catch (Exception e)
+                    {
+                        game.setTypeMyTable(pos, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 1, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 2, TypesBoard.UntestedEmpty);
+                        game.setTypeMyTable(pos - 8, TypesBoard.UntestedEmpty);
+                        throw e;
+                    }
 
                     setButtonsNumbers(pos);
                     setButtonsNumbers(pos - 1);
