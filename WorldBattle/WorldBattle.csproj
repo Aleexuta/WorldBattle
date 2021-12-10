@@ -168,8 +168,5 @@
   <ItemGroup>
     <Resource Include="Poze\fundal.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Sunete\BombaNimerita.mp3" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

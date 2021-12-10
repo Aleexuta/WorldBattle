@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Media;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,14 +20,7 @@ namespace WorldBattle
     /// Interaction logic for GameUI.xaml
     /// </summary>
     /// 
-    enum soundType
-    {
-        Bombanimerita,
-        ElementNimerit,
-        GameOver,
-        GameWin,
-        Combo
-    };
+
     
     //TODO
     //combo nr de ghiciri pe ecran 
@@ -60,12 +52,26 @@ namespace WorldBattle
 
             this.tipTeren = tipTeren;
             this.username = username;
+
+            //if(tipTeren == "")  //urmeaza cazurile
+            //{
+            //    var uri = new Uri("url poza");
+            //    var bitmap = new BitmapImage(uri);
+            //    GameGrid.Background = new ImageBrush(bitmap);
+            //}
+
+
+            //mai intai face butoanele tuturor
+            //seteaza butoanele adversarului pe disable
+
+            GenerateOpponentButtonArray();
+            GenerateMyTableButtonArray();
+            GeneratePhotos();
+            disable_enableButtons(opponetsButtons, false);
             this.stream = stream;
-        
             this.game = Game.getInstance(player);
             yourTurnButton.IsEnabled=false;
-
-            initGame();
+            
             // TODO
             // seteaza subtitlul pe prepare si abia dupa ce e gata prepararea se seteaza randul
             if (player == "First")
@@ -83,19 +89,6 @@ namespace WorldBattle
             }
 
         }
-        private void initGame()
-        {
-
-            GenerateOpponentButtonArray();
-            GenerateMyTableButtonArray();
-            GeneratePhotos();
-            disable_enableButtons(opponetsButtons, false);
-            
-            NrElementePlasate = 0;
-            NrCombo = 0;
-            NrNimeriri = 0;
-            NrOcupate = 0;
-    }
         private String ReadMessage()
         {
             Byte[] bytes = new Byte[256];
@@ -135,7 +128,6 @@ namespace WorldBattle
                // se pune jeton de nu e nimic
                 Image brush = new Image();
                 brush.Source = new BitmapImage(new Uri("/Poze/GrayX.jpeg", UriKind.Relative));
-                brush.Opacity = '1';
                 opponetsButtons[position].Content=brush;
             }
             else
@@ -230,10 +222,6 @@ namespace WorldBattle
             {
                 int nrbut = Convert.ToInt32(dataString[1]);//nr butonului
                 string newmessage = "Verified";
-                //todo
-                //sunet si aici in funtie de ce s a intamplat
-
-
                 //verific ce am pe pozitia aia si trimit un mesaj cu raspunsul si adaug pe tabla mea ca a fost nimerit
                 if(game.getTypeFromTable(nrbut)==TypesBoard.UntestedEmpty)
                 {
@@ -246,7 +234,6 @@ namespace WorldBattle
                     newmessage += "," + dataString[1] + ",Full";
                     game.setTypeMyTable(nrbut, TypesBoard.TestedFull);
                     incrementPhotoNumber(nrbut);
-                    startSound(soundType.Bombanimerita);
                     //TODO
                     //trimite la poza ca a fost nimerit. cand e full trebuie sa trimita la mesaj ca a ghicit poza si id-ul ei
                     ImagePos img = IsFullPhoto(nrbut);//daca poza e full trimitem poza catre adversar cu pozitile aferente
@@ -291,8 +278,6 @@ namespace WorldBattle
                         //daca a primit la mesaj si faptul ca a intregit un element se ia id ul si se adauga poza la pozitia respectiva.
                         //ATENTIE, primim id-ul pozei, si rotatia pe langa nr butonului
                         //verifica terminarea jocului
-
-                        startSound(soundType.Bombanimerita);
                         VerifyGameOver();
 
                     }
@@ -315,19 +300,6 @@ namespace WorldBattle
                 endGame();
             }
             WaitForResponse();
-        }
-        private void startSound(soundType typeSound)
-        {
-            SoundPlayer player=null;
-            if (typeSound==soundType.Bombanimerita)
-            {
-                // player = new SoundPlayer("..\\..\\Sunete\\BombaNimerita.mp3");
-                //player.Load();
-                //player.Play();
-            
-            }
-           
-
         }
         private void incrementPhotoNumber(int nrbut)
         {

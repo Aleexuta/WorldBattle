@@ -63,7 +63,8 @@ namespace WorldBattle
         }
         static public Game getInstance(String player)
         {
-            instance = new Game(player);
+            if (instance == null)
+                instance = new Game(player);
             return instance;
         }
         static public Game getInstance()
