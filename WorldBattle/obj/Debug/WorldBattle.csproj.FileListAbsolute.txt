@@ -43,4 +43,7 @@ C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.Gener
 C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.CoreCompileInputs.cache
 C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.exe
 C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle_Content.g.cs
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

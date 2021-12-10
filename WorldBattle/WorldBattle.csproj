@@ -186,6 +186,9 @@
   <ItemGroup>
     <Content Include="Poze\test.mp3" />
   </ItemGroup>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

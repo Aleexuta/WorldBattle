@@ -43,6 +43,9 @@ namespace WorldBattle
                 mediaPlayer.Open(new Uri(musicUri, UriKind.Relative));
                 mediaPlayer.Play();
             }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
         private void hostButton_Click(object sender, RoutedEventArgs e)
