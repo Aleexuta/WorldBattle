@@ -169,7 +169,21 @@
     <Resource Include="Poze\fundal.jpg" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="Sunete\BombaNimerita.mp3" />
+=======
+    <Resource Include="Poze\navala.jpg" />
+    <Resource Include="Poze\terestru.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\logo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\Board.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\aviatie.jpg" />
+>>>>>>> 70a657d89e0b0bf07446e109f6ac53c312b9dac6
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

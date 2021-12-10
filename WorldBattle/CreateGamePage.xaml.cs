@@ -27,6 +27,8 @@ namespace WorldBattle
         public CreateGamePage()
         {
             InitializeComponent();
+            string iconUri = "..\\..\\Poze\\logo.jpeg";
+            this.Icon = BitmapFrame.Create(new Uri(iconUri, UriKind.Relative));
             terrainComboBox.Items.Insert(0, "--Select--");
             terrainComboBox.Items.Add("Naval");
             terrainComboBox.Items.Add("Terestru");
@@ -115,14 +117,17 @@ namespace WorldBattle
                 // Get a stream object for reading and writing
                 this.stream = client.GetStream();
 
-                String data = ReadMessage();
+                String receivedData = ReadMessage();
 
+                String[] words = receivedData.Split(',');
+                String data = words[0];
+                string oponentUsername = words[1];
                 if (data == this.version)
                 {
-                    WriteMessage("Connected," + tipTeren.ToString());
+                    WriteMessage("Connected," + tipTeren.ToString() +"," + username);
 
                     this.Hide();
-                    GameUI game = new GameUI(stream, "First", username, tipTeren.ToString());
+                    GameUI game = new GameUI(stream, "First", username, tipTeren.ToString(),oponentUsername);
                     game.ShowDialog();
 
                     SendDisconnectMessage();

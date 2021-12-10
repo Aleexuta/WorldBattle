@@ -25,6 +25,8 @@ namespace WorldBattle
         public Startup()
         {
             InitializeComponent();
+            string iconUri = "..\\..\\Poze\\logo.jpeg";
+            this.Icon = BitmapFrame.Create(new Uri(iconUri, UriKind.Relative));
         }
 
         private void hostButton_Click(object sender, RoutedEventArgs e)

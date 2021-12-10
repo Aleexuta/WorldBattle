@@ -13,6 +13,7 @@ C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\World
 C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.CoreCompileInputs.cache
 C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.exe
 C:\Users\default.DESKTOP-JSGMONP\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.pdb
+<<<<<<< HEAD
 C:\Users\alexa\source\repos\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.AssemblyReference.cache
 C:\Users\alexa\source\repos\WorldBattle\WorldBattle\obj\Debug\CreateGamePage.g.cs
 C:\Users\alexa\source\repos\WorldBattle\WorldBattle\obj\Debug\GameUI.g.cs
@@ -42,3 +43,32 @@ C:\Users\alexa\source\repos\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj
 C:\Users\alexa\source\repos\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.CoreCompileInputs.cache
 C:\Users\alexa\source\repos\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.CopyComplete
 C:\Users\alexa\source\repos\WorldBattle\WorldBattle\obj\Debug\WorldBattle.exe
+=======
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.AssemblyReference.cache
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\CreateGamePage.g.cs
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\GameUI.g.cs
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\GuestPage.g.cs
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\Startup.g.cs
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\App.g.cs
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle_MarkupCompile.cache
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle_MarkupCompile.lref
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\CreateGamePage.baml
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\GameUI.baml
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\GuestPage.baml
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\Startup.baml
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.g.resources
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.pdb
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\bin\Debug\WorldBattle.exe.config
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\bin\Debug\WorldBattle.exe
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\bin\Debug\WorldBattle.pdb
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.Properties.Resources.resources
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.GenerateResource.cache
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.CoreCompileInputs.cache
+C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\WorldBattle.exe
+>>>>>>> 70a657d89e0b0bf07446e109f6ac53c312b9dac6
