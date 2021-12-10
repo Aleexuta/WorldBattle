@@ -27,8 +27,6 @@ namespace WorldBattle
         public GuestPage()
         {
             InitializeComponent();
-            string iconUri = "..\\..\\Poze\\logo.jpeg";
-            this.Icon = BitmapFrame.Create(new Uri(iconUri, UriKind.Relative));
         }
         /*
         * Reads message sent through the network stream
@@ -107,20 +105,20 @@ namespace WorldBattle
                 // Get a client stream for reading and writing.
                 this.stream = client.GetStream();
 
-                WriteMessage("1.0," + username);
+                WriteMessage("1.0");
 
                 String receivedData = ReadMessage();
 
                 String[] words = receivedData.Split(',');
                 String data = words[0];
                 tipTeren = words[1];
-                string oponentUsername = words[2];
+
 
                 if (data == "Connected")
                 {
                     infoLabel.Content = "Connected!";
                     this.Hide();
-                    GameUI game = new GameUI(stream, "Second", username, tipTeren, oponentUsername);
+                    GameUI game = new GameUI(stream, "Second", username, tipTeren);
                     game.ShowDialog();
                 }
                 else

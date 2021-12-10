@@ -4,28 +4,16 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
 C:\Users\alexa\source\repos\WorldBattle\WorldBattle\obj\Debug\
-=======
-C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\obj\Debug\
->>>>>>> 70a657d89e0b0bf07446e109f6ac53c312b9dac6
 WorldBattle
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
 C:\Users\alexa\source\repos\WorldBattle\WorldBattle\App.xaml
 4312575404
 1-555243843
 101802824091
 15-127318885
-=======
-C:\Users\Teoo\Desktop\WorldBattle\WorldBattle\App.xaml
-4312575404
-
-101802824091
-151590496578
->>>>>>> 70a657d89e0b0bf07446e109f6ac53c312b9dac6
 CreateGamePage.xaml;GameUI.xaml;GuestPage.xaml;Startup.xaml;
 
 False
