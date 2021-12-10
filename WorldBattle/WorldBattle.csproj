@@ -168,5 +168,18 @@
   <ItemGroup>
     <Resource Include="Poze\fundal.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\navala.jpg" />
+    <Resource Include="Poze\terestru.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\logo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\Board.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\aviatie.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

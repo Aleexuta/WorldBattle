@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WorldBattle
@@ -42,23 +43,41 @@ namespace WorldBattle
 
         private string tipTeren;
         private string username;
+        private string opponentUsername;
 
 
         ImagePos[] images = new ImagePos[4];
-        public GameUI(NetworkStream stream, String player, String username, String tipTeren)
+        public GameUI(NetworkStream stream, String player, String username, String tipTeren, String oponnentUsername)
         {
             InitializeComponent();
             //TODO
-
+            string iconUri = "..\\..\\Poze\\logo.jpeg";
+            this.Icon = BitmapFrame.Create(new Uri(iconUri, UriKind.Relative));
             this.tipTeren = tipTeren;
             this.username = username;
+            this.opponentUsername = oponnentUsername;
+            myNameLabel.Content = username;
+            opponentNameLabel.Content = oponnentUsername;
 
-            //if(tipTeren == "")  //urmeaza cazurile
-            //{
-            //    var uri = new Uri("url poza");
-            //    var bitmap = new BitmapImage(uri);
-            //    GameGrid.Background = new ImageBrush(bitmap);
-            //}
+            if (tipTeren == "Aviatie")  //urmeaza cazurile
+            {
+                string uri = "..\\..\\Poze\\aviatie.jpg";
+                BitmapImage bitmap = new BitmapImage(new Uri(uri, UriKind.Relative));
+                GameGrid.Background = new ImageBrush(bitmap);
+            }
+            if (tipTeren == "Naval")  //urmeaza cazurile
+            {
+                string uri ="..\\..\\Poze\\navala.jpg";
+                BitmapImage bitmap = new BitmapImage(new Uri(uri, UriKind.Relative));
+                GameGrid.Background = new ImageBrush(bitmap);
+            }
+            if (tipTeren == "Terestru")  //urmeaza cazurile
+            {
+                string uri = "..\\..\\Poze\\terestru.jpg";
+                BitmapImage bitmap = new BitmapImage(new Uri(uri, UriKind.Relative));
+                GameGrid.Background = new ImageBrush(bitmap);
+            }
+
 
 
             //mai intai face butoanele tuturor
@@ -694,6 +713,11 @@ namespace WorldBattle
             fundal.Children.Clear();
             disable_enableButtons(mytableButtons, true);
             game.disableButtonsMyTable();
+        }
+
+        private void howToPlayButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
         //restul butoanelor
     }

@@ -1,14 +1,71 @@
-﻿<Window x:Class="WorldBattle.GameUI"
+﻿<Window x:Name="backgroundFundal" x:Class="WorldBattle.GameUI"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldBattle"
         mc:Ignorable="d"
-        Title="GameUI" MinHeight="700" MinWidth="1000" 
-        MaxHeight="700" MaxWidth="1050" 
-        d:DesignWidth="1050" d:DesignHeight="700" WindowStartupLocation="CenterScreen" >
-    <Grid x:Name="GameGrid" MaxHeight="850" MaxWidth="1400" Margin="0,0,4,-5" >
+        Title="WorldBattle" MinHeight="700" MinWidth="1100" 
+        MaxHeight="700" MaxWidth="1100" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Width="1034.596" Height="684.739" >
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="RoundedButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="30" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="GameGrid" MaxHeight="850" MaxWidth="1100" Margin="0,0,-6,-5" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
@@ -28,12 +85,12 @@
 
             <Canvas Name="fundalopponent" Grid.Column="2" 
                     Margin="0,0,78,32" MaxHeight="320" MaxWidth="320" 
-                Background="Aqua" Height="320" VerticalAlignment="Bottom" 
+                Background="Transparent" Height="320" VerticalAlignment="Bottom" 
                     HorizontalAlignment="Right" Width="320" Grid.ColumnSpan="2"
                     Opacity="1"/>
             <Canvas Name="opponenttable" Grid.Column="2" 
                     Margin="0,0,78,32" MaxHeight="320" MaxWidth="320" 
-                Background="White" Height="320" 
+                Background="Aqua" Height="320" 
                     VerticalAlignment="Bottom" 
                     HorizontalAlignment="Right" 
                     Width="320" Grid.ColumnSpan="2"
@@ -52,31 +109,36 @@
 
 
                 <TextBlock x:Name="Infolabel" Text=" " Grid.Row="0" HorizontalAlignment="Center"  
-            Margin="422,64,-745,361" TextWrapping="Wrap" 
-            VerticalAlignment="Center" Height="107" Width="601" 
+            Margin="422,64,-745,390" TextWrapping="Wrap" 
+            VerticalAlignment="Center" Height="78" Width="601" 
             FontSize="25" TextAlignment="Center" />
 
             </Grid>
-            <Canvas x:Name="fundal"  Grid.Column="1" Margin="0,0,39,32" Background="Pink" Height="320" Width="320" HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="1"/>
+            <Canvas x:Name="fundal" Background="Transparent"  Grid.Column="1" Margin="0,0,39,32"  Height="320" Width="320" HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="1">
+
+            </Canvas>
 
 
-            <Canvas x:Name="mytable" Grid.Column="1" Margin="0,0,39,32" Background="White" Height="320" Width="320" HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="0.3"/>
+            <Canvas x:Name="mytable" Grid.Column="1" Margin="0,0,39,32" Background="Gray" Height="320" Width="320" HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="0.3"/>
+            <Label x:Name="myNameLabel" Foreground="WhiteSmoke" Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="30,149,0,0" VerticalAlignment="Top" Width="153" FontFamily="Times New Roman" FontSize="16" FontWeight="Bold"/>
+            <Label x:Name="opponentNameLabel" Foreground="White" Content="Label" Grid.Column="2" HorizontalAlignment="Left" Margin="36,149,0,0" VerticalAlignment="Top" Width="152" FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
         </Grid>
         <TextBlock x:Name="subtitle" Text="Titlu" HorizontalAlignment="Center"  
-                   Margin="318,10,270,488" TextWrapping="Wrap" 
+                   Margin="343,10,295,488" TextWrapping="Wrap" 
                    VerticalAlignment="Center" Height="78" Width="452" 
                    FontSize="25" TextAlignment="Center" Grid.RowSpan="2" />
 
-        <Button x:Name="yourTurnButton" Grid.Row="2" Content="End Turn" HorizontalAlignment="Left" Margin="794,27,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="yourTurnButton_Click"/>
-        <Button x:Name="readyButton" Grid.Row="2" Content="Ready" HorizontalAlignment="Left" Margin="281,27,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="readyButton_Click" />
-        <Button x:Name="undoButton" Grid.Row="2" Content="Undo" HorizontalAlignment="Left" Margin="534,27,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="undoButton_Click" />
+        <Button x:Name="yourTurnButton" Style="{DynamicResource RoundedButton}" Opacity="0.6" Background="WhiteSmoke" Grid.Row="2" Content="End Turn" HorizontalAlignment="Left" Margin="896,27,0,0" VerticalAlignment="Top" Width="134" Height="45" FontSize="25" Click="yourTurnButton_Click" FontFamily="Times New Roman"/>
+        <Button x:Name="readyButton" Style="{DynamicResource RoundedButton}" Opacity="0.6" Background="WhiteSmoke" Grid.Row="2" Content="Ready" HorizontalAlignment="Left" Margin="549,27,0,0" VerticalAlignment="Top" Width="130" Height="45" FontSize="25" Click="readyButton_Click" FontFamily="Times New Roman" />
+        <Button x:Name="undoButton" Style="{DynamicResource RoundedButton}" Opacity="0.6" Background="WhiteSmoke" Grid.Row="2" Content="Undo" HorizontalAlignment="Left" Margin="709,27,0,0" VerticalAlignment="Top" Width="131" Height="45" FontSize="25" Click="undoButton_Click" FontFamily="Times New Roman" />
 
 
         <TextBlock x:Name="ComboLabel" Text=" " HorizontalAlignment="Center"  
-                    Margin="742,0,44,0" TextWrapping="Wrap" 
+                    Margin="765,0,67,0" TextWrapping="Wrap" 
                     VerticalAlignment="Center" Height="44" Width="258" 
                     FontSize="25" TextAlignment="Center" />
-
+        <Button x:Name="howToPlayButton" Grid.Row="2" Content="How to Play" HorizontalAlignment="Left" Background="WhiteSmoke" Margin="324,27,0,0" VerticalAlignment="Top" Width="185" Height="45" FontSize="25" Click="howToPlayButton_Click" Style="{DynamicResource RoundedButton}" Opacity="0.6" FontFamily="Times New Roman"/>
+       
 
 
     </Grid>
