@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bg-lgin.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sunete/bombanimerita.mp3")]
 
 
