@@ -168,5 +168,24 @@
   <ItemGroup>
     <Resource Include="Poze\fundal.jpg" />
   </ItemGroup>
+<<<<<<< Updated upstream
+=======
+  <ItemGroup>
+    <Resource Include="Poze\navala.jpg" />
+    <Resource Include="Poze\terestru.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\logo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\Board.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Poze\aviatie.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Poze\test.mp3" />
+  </ItemGroup>
+>>>>>>> Stashed changes
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

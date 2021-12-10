@@ -78,6 +78,7 @@
             <Button x:Name="hostButton"  Content="Host" FontFamily="Helvetica" FontSize="30" FontStretch="UltraExpanded" Foreground="Black" HorizontalAlignment="Left" Margin="0,0,100,0" Opacity="0.5" VerticalAlignment="Top" Width="250" Height="70" Click="hostButton_Click" Style="{DynamicResource RoundedButton}"/>
             <Button x:Name="guestButton" Content="Guest" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Top" Width="250" Height="70" Click="guestButton_Click" Style="{DynamicResource RoundedButton}" Opacity="0.5" FontFamily="Helvetica" FontSize="30" FontStretch="UltraExpanded" Foreground="Black"/>
         </StackPanel>
+        <Button x:Name="muteButton" Content="Mute" HorizontalAlignment="Left" Margin="650,70,0,0" VerticalAlignment="Top" Width="76" Click="muteButton_Click"/>
 
     </Grid>
 </Window>
