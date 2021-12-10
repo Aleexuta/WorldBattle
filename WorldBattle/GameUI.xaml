@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldBattle"
         mc:Ignorable="d"
-        Title="GameUI" MinHeight="600" MinWidth="1000" 
-        MaxHeight="640" MaxWidth="1050" 
-        d:DesignWidth="1050" d:DesignHeight="640" WindowStartupLocation="CenterScreen" >
+        Title="GameUI" MinHeight="700" MinWidth="1000" 
+        MaxHeight="700" MaxWidth="1050" 
+        d:DesignWidth="1050" d:DesignHeight="700" WindowStartupLocation="CenterScreen" >
     <Grid x:Name="GameGrid" MaxHeight="850" MaxWidth="1400" Margin="0,0,4,-5" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -42,18 +42,18 @@
             <Grid Grid.Column="0" x:Name="pozegrid">
 
                 <Image x:Name="poza1" HorizontalAlignment="Left" VerticalAlignment="Top"
-                   Source="/Poze/barca1.png" Height="41" Width="159" Margin="82,39,0,0"  />
+                   Source="/Poze/barca1.png" Height="41" Width="159" Margin="51,242,0,0"  />
                 <Image x:Name="poza2" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                   Source="/Poze/barca2.png" Height="121" Width="131" Margin="110,125,0,0"  />
+                   Source="/Poze/barca2.png" Height="121" Width="131" Margin="72,121,0,0"  />
                 <Image x:Name="poza3" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                   Source="/Poze/barca5.png" Height="124" Width="158" Margin="10,280,0,0"  />
+                   Source="/Poze/barca5.png" Height="124" Width="158" Margin="72,398,0,0"  />
                 <Image x:Name="poza4" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                   Source="/Poze/barca2.png" Height="106" Width="165" Margin="93,342,0,0"  />
+                   Source="/Poze/barca2.png" Height="106" Width="165" Margin="45,10,0,0"  />
 
 
                 <TextBlock x:Name="Infolabel" Text=" " Grid.Row="0" HorizontalAlignment="Center"  
-            Margin="409,14,-362,392" TextWrapping="Wrap" 
-            VerticalAlignment="Center" Height="66" Width="231" 
+            Margin="422,64,-745,361" TextWrapping="Wrap" 
+            VerticalAlignment="Center" Height="107" Width="601" 
             FontSize="25" TextAlignment="Center" />
 
             </Grid>
@@ -62,16 +62,16 @@
 
             <Canvas x:Name="mytable" Grid.Column="1" Margin="0,0,39,32" Background="White" Height="320" Width="320" HorizontalAlignment="Right" VerticalAlignment="Bottom" Opacity="0.3"/>
         </Grid>
-        <TextBlock x:Name="subtitle" Text="Titlu" Grid.Row="0" HorizontalAlignment="Center"  
-                   Margin="0,0,592,393" TextWrapping="Wrap" 
+        <TextBlock x:Name="subtitle" Text="Titlu" HorizontalAlignment="Center"  
+                   Margin="318,10,270,488" TextWrapping="Wrap" 
                    VerticalAlignment="Center" Height="78" Width="452" 
-                   FontSize="25" Grid.RowSpan="2" TextAlignment="Center" />
+                   FontSize="25" TextAlignment="Center" Grid.RowSpan="2" />
 
         <Button x:Name="yourTurnButton" Grid.Row="2" Content="End Turn" HorizontalAlignment="Left" Margin="794,27,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="yourTurnButton_Click"/>
         <Button x:Name="readyButton" Grid.Row="2" Content="Ready" HorizontalAlignment="Left" Margin="281,27,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="readyButton_Click" />
         <Button x:Name="undoButton" Grid.Row="2" Content="Undo" HorizontalAlignment="Left" Margin="534,27,0,0" VerticalAlignment="Top" Width="236" Height="60" FontSize="25" Click="undoButton_Click" />
-        
-        
+
+
         <TextBlock x:Name="ComboLabel" Text=" " HorizontalAlignment="Center"  
                     Margin="742,0,44,0" TextWrapping="Wrap" 
                     VerticalAlignment="Center" Height="44" Width="258" 
