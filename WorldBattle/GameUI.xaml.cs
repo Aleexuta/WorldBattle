@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +24,14 @@ namespace WorldBattle
     /// </summary>
     /// 
 
-    
-    //TODO
-    //combo nr de ghiciri pe ecran 
+    enum SoundType
+    {
+        BombaNimerita,
+        ElementDistrus,
+        GameOver,
+        GameWin,
+        Combo
+    }
 
     public partial class GameUI : Window
     {
@@ -83,16 +90,11 @@ namespace WorldBattle
             //mai intai face butoanele tuturor
             //seteaza butoanele adversarului pe disable
 
-            GenerateOpponentButtonArray();
-            GenerateMyTableButtonArray();
-            GeneratePhotos();
-            disable_enableButtons(opponetsButtons, false);
+            initGame();
             this.stream = stream;
             this.game = Game.getInstance(player);
             yourTurnButton.IsEnabled=false;
             
-            // TODO
-            // seteaza subtitlul pe prepare si abia dupa ce e gata prepararea se seteaza randul
             if (player == "First")
             {
                 this.subtitle.Text = "You are the host.\nPrepare your table and click on ready.";
@@ -107,6 +109,50 @@ namespace WorldBattle
                 WaitForResponse();
             }
 
+        }
+        private void initGame()
+        {
+            NrElementePlasate = 0;
+            NrCombo = 0;
+            NrNimeriri = 0;
+            NrOcupate = 0;
+            GenerateOpponentButtonArray();
+            GenerateMyTableButtonArray();
+            GeneratePhotos();
+            disable_enableButtons(opponetsButtons, false);
+        }
+        private void playSound(SoundType type)
+        {
+            switch(type)
+            {
+                case SoundType.BombaNimerita:
+                    var mplayer = new MediaPlayer();
+                    mplayer.Open(new Uri("..\\..\\Sunete\\bombanimerita.mp3", UriKind.Relative));
+                    mplayer.Play();
+                    break;
+                case SoundType.ElementDistrus:
+                    var mplayer3 = new MediaPlayer();
+                    mplayer3.Open(new Uri("..\\..\\Sunete\\bombanimerita.mp3", UriKind.Relative));
+                    mplayer3.Play();
+                    break;
+                case SoundType.Combo:
+                    System.Media.SoundPlayer player2 = new System.Media.SoundPlayer();
+                    player2.SoundLocation = "..\\..\\Sunete\\combo.wav";
+                    player2.Play();
+                    break;
+                case SoundType.GameOver:
+                    System.Media.SoundPlayer player3 = new System.Media.SoundPlayer();
+                    player3.SoundLocation = "..\\..\\Sunete\\gameover.wav";
+                    player3.Play();
+                    break;
+                case SoundType.GameWin:
+                    var mplayer2 = new MediaPlayer();
+                    mplayer2.Open(new Uri("..\\..\\Sunete\\wingame.mp3", UriKind.Relative));
+                    mplayer2.Play();
+                    break;
+                default:
+                    break;
+            }
         }
         private String ReadMessage()
         {
@@ -262,10 +308,12 @@ namespace WorldBattle
                             Convert.ToString(img.m_fullleft) + "," +
                             Convert.ToString(img.m_fulltop) + "," + 
                             img.getRot()+","+img.getHeightByRot()+","+img.getWidthByRot();
+                        playSound(SoundType.ElementDistrus);
                     }
                     else
                     {
                         newmessage += ",Nophoto";
+                        playSound(SoundType.BombaNimerita);
                     }
                 }
                 UpdateMyBoard(nrbut);
@@ -293,12 +341,17 @@ namespace WorldBattle
                     {
                         setFullPhotoOppTable(dataString[4],Convert.ToDouble(dataString[5]),Convert.ToDouble( dataString[6]), Convert.ToInt32(dataString[7]),
                             Convert.ToInt32(dataString[8]), Convert.ToInt32(dataString[9]));
+                        playSound(SoundType.ElementDistrus);
                         //TODO
                         //daca a primit la mesaj si faptul ca a intregit un element se ia id ul si se adauga poza la pozitia respectiva.
                         //ATENTIE, primim id-ul pozei, si rotatia pe langa nr butonului
                         //verifica terminarea jocului
                         VerifyGameOver();
 
+                    }
+                    else
+                    {
+                        playSound(SoundType.BombaNimerita);
                     }
 
 
@@ -315,7 +368,9 @@ namespace WorldBattle
             {
                 //TODO
                 //afiseaza mesaj ca am pierdut, disable tot
-                MessageBox.Show("Ai pierdut");
+                //MessageBox.Show("Ai pierdut");
+                Infolabel.Text = "Ai pierdut";
+                playSound(SoundType.GameOver);
                 endGame();
             }
             WaitForResponse();
@@ -328,10 +383,10 @@ namespace WorldBattle
         private void setFullPhotoOppTable(String id,double left, double top, int rot, int height, int width)
         {
 
-            
+
             //cream imaginea, in functie de idul pozei incarcam un anumit tip de poza, ii setam inaltimea si latimea
             //o plasam dupa parametrii primmiti in canvasul oponentului dedesuptul butoanelor
-            MessageBox.Show("Element nimerit");
+            Infolabel.Text = "\nArmament Distrus\nMai ai dreptul la o incercare";
             String imguri = getUriForId(id);
             //nu mereee
             BitmapImage Bit = new BitmapImage(new Uri(imguri, UriKind.Relative));
@@ -364,7 +419,9 @@ namespace WorldBattle
             if (NrNimeriri == NrOcupate)
             {
                 WriteMessage("GameOver"); //transmitem mesajul ca adversarul a castigat
-                MessageBox.Show("Ai castigat");
+                Infolabel.Text = "Ai castigat";
+                //MessageBox.Show("Ai castigat");
+                playSound(SoundType.GameWin);
                 endGame();
             }
         }
@@ -388,11 +445,12 @@ namespace WorldBattle
         private void BombPlassed()
         {
             NrNimeriri++;
-            Infolabel.Text = "BUM!.Ai nimerit.\n Mai ai dreptul la o inccercare";
+            Infolabel.Text = "Mai ai dreptul la o incercare";
             NrCombo++;
             if(NrCombo>1)
             {  
                 ComboLabel.Text = "COMBO x" + NrCombo;
+                playSound(SoundType.Combo);
             }
 
             
@@ -559,7 +617,7 @@ namespace WorldBattle
             {
                 createPhoto(0, "Poze\\avion1.png", poza1, 4, 5, "Avion1", 1.5, 1.5, 1.5, 2.5, 10);
                 createPhoto(1, "Poze\\avion2.png", poza2, 2, 3, "Avion2", 0, 1, 1, 1, 4);
-                createPhoto(2, "Poze\\avion5.png", poza3, 1, 1, "Avion3", 0, 0, 0, 0, 1);
+                createPhoto(2, "Poze\\avion3.png", poza3, 1, 1, "Avion3", 0, 0, 0, 0, 1);
                 createPhoto(3, "Poze\\avion4.png", poza4, 3, 2, "Avion4", 1.5, 0.5, 0.5, 0.5, 4);
 
             }
@@ -682,7 +740,7 @@ namespace WorldBattle
             if (id == "Avion2")
                 return "..\\..\\Poze\\avion2.png";
             if (id == "Avion3")
-                return "..\\..\\Poze\\avion5.png";
+                return "..\\..\\Poze\\avion3.png";
             if (id == "Avion4")
                 return "..\\..\\Poze\\avion4.png";
             if (id == "Barca2")

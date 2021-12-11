@@ -8,6 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bg-lgin.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sunete/background.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sunete/bombanimerita.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sunete/combo.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sunete/elementdistrus.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sunete/gameover.wav")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sunete/wingame.mp3")]
 
 
