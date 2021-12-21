@@ -1,0 +1,59 @@
+﻿<Window x:Class="WorldBattle.Instructions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorldBattle"
+        mc:Ignorable="d"
+        Title="Instructions" MinHeight="700" MinWidth="1100" MaxHeight="700" MaxWidth="1100">
+    <Window.Background>
+        <ImageBrush ImageSource="/Poze/fundal.jpg"/>
+    </Window.Background>
+
+    <Grid x:Name="InstructionsGrid" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="TitleRow" Height="44"></RowDefinition>
+            <RowDefinition x:Name="ButtonRow" Height="100"/>
+        </Grid.RowDefinitions>
+
+
+
+        <TextBlock x:Name="GameRule" Text="Instructiuni" HorizontalAlignment="Center"  
+                   Margin="102,10,546,58" TextWrapping="Wrap" 
+                   VerticalAlignment="Center" Height="78" Width="452" 
+                   FontSize="25" TextAlignment="Center" Grid.RowSpan="2" Foreground="White" FontWeight="Bold"/>
+
+
+        <!--<Button x:Name="OpenInfo" Content="Game Rules" HorizontalAlignment="Left" Background="WhiteSmoke" Margin="42,25,0,0" VerticalAlignment="Top" Width="185" Height="46" FontSize="25" Click="GameRulesButton_Click" Style="{DynamicResource RoundedButton}" Opacity="0.6" FontFamily="Times New Roman" Grid.Row="1"/>-->
+
+        <TextBox x:Name="Informatii" HorizontalAlignment="Left" Height="555" Margin="10,2,0,-456" TextWrapping="Wrap" Text="Pentru a juca WorldBattle este nevoie de doi jucatori, Host si Guest&#xA;Scopul jocului este de a elimina fortele adversarului prin calcularea pozitiei de pe tabla de joc&#xA;Host-ul este cel care genereaza jocul, prin alegerea unui mod de joc(3 moduri de joc disponibile: aviatie, navala si terestru)&#xA;&#x9;&#x9;-acestuia se genereaza un IP care v-a fi transmis guestului de catre &#x9;&#x9;&#x9;&#x9;utilizator; un IP de camera&#xA;&#x9;&#x9;-guestul introduce IP-ul primit de la host pentru a intra in joc&#xA;Prepararea tabelei de joc&#xA;&#x9;&#x9;-fiecare jucator trebuie sa plaseze elementele armatei pe tabla sa de &#x9;&#x9;&#x9;joc(stanga)&#xA;&#x9;&#x9;-dupa terminarea plasarii se apasa butonul READY&#xA;&#x9;&#x9;-in cazul doriri rearanjarii se apasa butonul UNDO&#xA;&#x9;&#x9;-pentrut a muta o poza se urmareste centru rosu, se da click stanga &#x9;&#x9;&#x9;&#x9;pe element si click stanga pe pozitia dorita pe table&#xA;&#x9;&#x9;-pentru a roti poza se apasa click dreapta pe element&#xA;Modul de Lupta&#xA;&#x9;&#x9;-fiecare jucator va lovi tabla oponentului pe rand pentru a distruge &#x9;&#x9;&#x9;&#x9;armata adversa &#xA;&#x9;&#x9;-o lovitura consta intr un click pe tabla oponentului:&#xA;&#x9;&#x9;&#x9;-in cazul in care nu am nimerit, runda se va termina&#xA;&#x9;&#x9;&#x9;-in cazul in care am nimerit, ne mai este ofera o lovitura&#xA;&#x9;&#x9;&#x9;-la finalul rundei se apasa pe END TURN pentru a finaliza tura&#xA;&#x9;&#x9;-jucatorul care doboara toata armata adversa castiga" 
+                 Background="#A99B76" Opacity="0.8" FontSize="17" VerticalAlignment="Top" Width="706" BorderThickness="0" Grid.Row="1" IsReadOnly="True" FontWeight="Bold" />
+
+        <!--<Button x:Name="buton" Content="Close" HorizontalAlignment="Left" Background="WhiteSmoke" Margin="891,560,0,-505" VerticalAlignment="Top" Width="185" Height="46" FontSize="25" Click="CloseButton_Click" Opacity="0.6" FontFamily="Times New Roman" Grid.Row="1"
+                Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>-->
+        <Button x:Name="CloseButton" Style="{DynamicResource RoundedButton}" Opacity="0.6" Background="WhiteSmoke" Grid.Row="1" Content="Close" HorizontalAlignment="Left" Margin="916,511,0,-456" VerticalAlignment="Top" Width="130" Height="46" FontSize="25" Click="CloseButton_Click" FontFamily="Times New Roman" />
+
+
+        <Grid Grid.Column="1">
+
+            <Image x:Name="poza1" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Source="/Poze/barca2.png" Height="106" Width="165" Margin="-208,43,0,-104" RenderTransformOrigin="-0.061,1.981"/>
+            <Image x:Name="poza2" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Source="/Poze/avion5.png" Height="106" Width="165" Margin="-373,43,0,-104" RenderTransformOrigin="-0.061,1.981"/>
+            <Image x:Name="poza3" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Source="/Poze/trupe1.png" Height="106" Width="165" Margin="-373,300,0,-361" RenderTransformOrigin="-0.061,1.981"/>
+            <Image x:Name="poza4" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Source="/Poze/tanc1.png" Height="106" Width="165" Margin="-203,170,0,-231" RenderTransformOrigin="-0.061,1.981"/>
+            <Image x:Name="poza5" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Source="/Poze/avion3.png" Height="106" Width="165" Margin="-373,170,0,-231" RenderTransformOrigin="-0.061,1.981"/>
+            <Image x:Name="poza6" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Source="/Poze/barca5.png" Height="106" Width="165" Margin="-187,276,0,-337" RenderTransformOrigin="-0.061,1.981"/>
+
+        </Grid>
+
+    </Grid>
+</Window>

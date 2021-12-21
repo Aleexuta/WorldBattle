@@ -293,6 +293,8 @@ namespace WorldBattle
                     //transmite catre adversar ca e empty
                     newmessage +=","+dataString[1]+ ",Empty";
                     game.setTypeMyTable(nrbut, TypesBoard.TestedEmpty);
+                    UpdateMyBoard(nrbut);
+                    WriteMessage(newmessage);
                 }
                 else if(game.getTypeFromTable(nrbut)==TypesBoard.UntestedFull)
                 {
@@ -315,9 +317,10 @@ namespace WorldBattle
                         newmessage += ",Nophoto";
                         playSound(SoundType.BombaNimerita);
                     }
+                    UpdateMyBoard(nrbut);
+                    WriteMessage(newmessage);
                 }
-                UpdateMyBoard(nrbut);
-                WriteMessage(newmessage);
+                
             }
             else if(dataString[0]=="Verified")//primesc felul de buton ce e
             {
@@ -331,6 +334,9 @@ namespace WorldBattle
 
                     disable_enableButtons(opponetsButtons, false);
                     yourTurnButton.IsEnabled = true;
+
+                    UpdateYourBoard(nrbut);
+                    opponetsButtons[nrbut].IsEnabled = false;
                 }
                 else
                 {
@@ -355,14 +361,14 @@ namespace WorldBattle
                     }
 
 
-
+                    UpdateYourBoard(nrbut);
+                    opponetsButtons[nrbut].IsEnabled = false;
 
                     //TODO
                     //adauga sunet de bomba
                 }
 
-                UpdateYourBoard(nrbut);
-                opponetsButtons[nrbut].IsEnabled = false;
+               
             }
             else if(dataString[0]=="GameOver")
             {
@@ -775,7 +781,8 @@ namespace WorldBattle
 
         private void howToPlayButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var hoe = new Instructions();
+            hoe.Show();
         }
         //restul butoanelor
     }

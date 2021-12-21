@@ -153,8 +153,8 @@ namespace WorldBattle
                         game.setTypeMyTable(pos + 1, TypesBoard.UntestedFull);
                         game.setTypeMyTable(pos + 2, TypesBoard.UntestedFull);
                         game.setTypeMyTable(pos + 8, TypesBoard.UntestedFull);
-                        game.setTypeMyTable(pos + 15, TypesBoard.UntestedFull);
                         game.setTypeMyTable(pos + 16, TypesBoard.UntestedFull);
+                        game.setTypeMyTable(pos + 15, TypesBoard.UntestedFull);
                         game.setTypeMyTable(pos + 17, TypesBoard.UntestedFull);
                     }
                     catch(Exception e)
