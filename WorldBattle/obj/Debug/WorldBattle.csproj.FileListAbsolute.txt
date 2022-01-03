@@ -70,3 +70,4 @@ C:\Users\alexa\Source\Repos\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj
 C:\Users\alexa\Source\Repos\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.CoreCompileInputs.cache
 C:\Users\alexa\Source\Repos\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.CopyComplete
 C:\Users\alexa\Source\Repos\WorldBattle\WorldBattle\obj\Debug\WorldBattle.exe
+C:\Users\alexa\Source\Repos\WorldBattle\WorldBattle\obj\Debug\WorldBattle.csproj.AssemblyReference.cache
